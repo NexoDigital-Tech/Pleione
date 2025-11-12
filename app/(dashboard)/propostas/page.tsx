@@ -1,8 +1,21 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewProposalSheet } from "../../components/NewProposalSheet";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonList } from "../../components/skeletons/SkeletonList";
 import { SkeletonTable } from "../../components/skeletons/SkeletonTable";
+import { Toast } from "../../components/Toast";
 import { propostasMock } from "../_mocks/data";
+
+type Proposta = (typeof propostasMock)[number];
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
 
 const statusClass: Record<string, string> = {
   "Em análise": "bg-[color:var(--color-warning)]/10 text-[color:var(--color-warning)]",
@@ -11,6 +24,16 @@ const statusClass: Record<string, string> = {
 };
 
 export default function PropostasPage() {
+  const [propostas, setPropostas] = useState<Proposta[]>(() => [...propostasMock]);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(proposta: Proposta) {
+    setPropostas((previous) => [proposta, ...previous]);
+    setToast({ message: "Proposta criada com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -21,7 +44,10 @@ export default function PropostasPage() {
             <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Exportar
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setSheetOpen(true)}
+            >
               Nova proposta
             </button>
           </>
@@ -39,7 +65,7 @@ export default function PropostasPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-[color:var(--color-border)] text-sm text-[color:var(--color-text-muted)]">
-            {propostasMock.map((proposta) => (
+            {propostas.map((proposta) => (
               <tr key={proposta.codigo}>
                 <td className="px-5 py-4 font-medium text-[color:var(--color-text)]">{proposta.codigo}</td>
                 <td className="px-5 py-4">
@@ -49,7 +75,7 @@ export default function PropostasPage() {
                 <td className="px-5 py-4">
                   <span
                     className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                      statusClass[proposta.status] ?? "bg-[color:var(--color-surface-muted)]"
+                      statusClass[proposta.status] ?? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]"
                     }`}
                   >
                     {proposta.status}
@@ -77,6 +103,9 @@ export default function PropostasPage() {
           />
         </div>
       </section>
+
+      <NewProposalSheet open={sheetOpen} onClose={() => setSheetOpen(false)} onSubmit={handleSubmit} />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }

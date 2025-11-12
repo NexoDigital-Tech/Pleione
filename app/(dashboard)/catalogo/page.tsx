@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewCatalogItemModal } from "../../components/NewCatalogItemModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { SkeletonList } from "../../components/skeletons/SkeletonList";
+import { Toast } from "../../components/Toast";
 import { catalogoMock } from "../_mocks/data";
 
+type CatalogItem = (typeof catalogoMock)[number] & { id: string };
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
+
 export default function CatalogoPage() {
+  const [items, setItems] = useState<CatalogItem[]>(() =>
+    catalogoMock.map((item, index) => ({ ...item, id: `catalogo-${index}` }))
+  );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(item: CatalogItem) {
+    setItems((previous) => [item, ...previous]);
+    setToast({ message: "Item adicionado ao catálogo.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -15,7 +40,10 @@ export default function CatalogoPage() {
             <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Gerenciar categorias
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setModalOpen(true)}
+            >
               Novo item
             </button>
           </>
@@ -33,8 +61,11 @@ export default function CatalogoPage() {
           </span>
         </header>
         <ul className="divide-y divide-[color:var(--color-border)]">
-          {catalogoMock.map((item) => (
-            <li key={item.nome} className="flex flex-col gap-2 py-4 text-sm text-[color:var(--color-text-muted)] sm:flex-row sm:items-center sm:justify-between">
+          {items.map((item) => (
+            <li
+              key={item.id}
+              className="flex flex-col gap-2 py-4 text-sm text-[color:var(--color-text-muted)] sm:flex-row sm:items-center sm:justify-between"
+            >
               <div>
                 <p className="font-medium text-[color:var(--color-text)]">{item.nome}</p>
                 <p>Categoria: {item.categoria}</p>
@@ -65,6 +96,13 @@ export default function CatalogoPage() {
           />
         </div>
       </section>
+
+      <NewCatalogItemModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSubmit={handleSubmit}
+      />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }

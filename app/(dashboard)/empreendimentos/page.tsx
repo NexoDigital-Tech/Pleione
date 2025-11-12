@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewEmpreendimentoModal } from "../../components/NewEmpreendimentoModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { SkeletonTable } from "../../components/skeletons/SkeletonTable";
+import { Toast } from "../../components/Toast";
 import { empreendimentosMock } from "../_mocks/data";
 
+type Empreendimento = (typeof empreendimentosMock)[number] & { id: string };
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
+
 export default function EmpreendimentosPage() {
+  const [empreendimentos, setEmpreendimentos] = useState<Empreendimento[]>(() =>
+    empreendimentosMock.map((item, index) => ({ ...item, id: `emp-${index}` }))
+  );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(empreendimento: Empreendimento) {
+    setEmpreendimentos((previous) => [empreendimento, ...previous]);
+    setToast({ message: "Empreendimento cadastrado com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -15,7 +40,10 @@ export default function EmpreendimentosPage() {
             <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Filtrar fases
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setModalOpen(true)}
+            >
               Novo empreendimento
             </button>
           </>
@@ -23,9 +51,9 @@ export default function EmpreendimentosPage() {
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {empreendimentosMock.map((item) => (
+        {empreendimentos.map((item) => (
           <article
-            key={item.nome}
+            key={item.id}
             className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm"
           >
             <div>
@@ -79,6 +107,9 @@ export default function EmpreendimentosPage() {
           />
         </div>
       </section>
+
+      <NewEmpreendimentoModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleSubmit} />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }
