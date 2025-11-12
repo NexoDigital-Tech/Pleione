@@ -33,7 +33,7 @@ export default function Home() {
         description="Visão consolidada do pipeline comercial, empreendimentos e relacionamento com clientes. Navegue pelos módulos para acessar os protótipos e estados padronizados."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Personalizar layout
             </button>
             <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
@@ -67,7 +67,7 @@ export default function Home() {
                 Baseado nos mockups disponíveis para navegação.
               </p>
             </div>
-            <button className="hidden rounded-full border border-[color:var(--color-border)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)] lg:block">
+            <button className="hidden rounded-full border border-[color:var(--color-accent)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)] lg:block">
               Ver todos
             </button>
           </header>
@@ -97,7 +97,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <button className="self-start rounded-full bg-[color:var(--color-primary-soft)] px-4 py-2 text-xs font-semibold text-[color:var(--color-primary)]">
+                <button className="self-start rounded-full bg-[color:var(--color-accent-soft)] px-4 py-2 text-xs font-semibold text-[color:var(--color-accent)]">
                   Abrir protótipo
                 </button>
               </article>

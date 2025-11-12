@@ -12,7 +12,7 @@ export default function PortalDoClientePage() {
         description="Protótipo da experiência do cliente final com cards de widgets, checklist e comunicação."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Pré-visualizar
             </button>
             <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
@@ -36,7 +36,7 @@ export default function PortalDoClientePage() {
               Última atualização
               <p className="text-base font-semibold text-[color:var(--color-text)]">{widget.ultimaAtualizacao}</p>
             </div>
-            <button className="self-start rounded-full bg-[color:var(--color-primary-soft)] px-4 py-2 text-xs font-semibold text-[color:var(--color-primary)]">
+            <button className="self-start rounded-full bg-[color:var(--color-accent-soft)] px-4 py-2 text-xs font-semibold text-[color:var(--color-accent)]">
               Configurar widget
             </button>
           </article>
