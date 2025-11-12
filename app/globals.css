@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --color-surface: #f6f8fb;
+  /*
+    Brand palette derived from the monochrome logo assets in /public:
+    - The darkest stroke (#666666) is kept for neutral text.
+    - Primary blue (#1d4ed8) and accent pink (#ec4899) anchor the 60/30/10 rule.
+  */
+  --color-surface: #fdfdfb;
   --color-surface-alt: #ffffff;
-  --color-surface-muted: #eef1f6;
+  --color-surface-muted: #f2f4f8;
   --color-border: #d7dce5;
-  --color-text: #1f2a44;
-  --color-text-muted: #5c6b87;
-  --color-primary: #4f46e5;
-  --color-primary-dark: #4338ca;
-  --color-primary-soft: #e0e7ff;
-  --color-accent: #0ea5e9;
+  --color-text: #1f2937;
+  --color-text-muted: #4b5563;
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #1e3a8a;
+  --color-primary-soft: #dbeafe;
+  --color-accent: #ec4899;
+  --color-accent-dark: #be185d;
+  --color-accent-soft: #fce7f3;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
@@ -27,15 +34,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-surface: #111827;
-    --color-surface-alt: #1f2937;
-    --color-surface-muted: #0f172a;
-    --color-border: #1f2937;
-    --color-text: #f9fafb;
-    --color-text-muted: #9ca3af;
-    --color-primary: #818cf8;
-    --color-primary-dark: #6366f1;
-    --color-primary-soft: rgba(99, 102, 241, 0.14);
+    --color-surface: #0b1220;
+    --color-surface-alt: #111a2b;
+    --color-surface-muted: #1c2537;
+    --color-border: #29334a;
+    --color-text: #f8fafc;
+    --color-text-muted: #cbd5f5;
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-primary-soft: rgba(59, 130, 246, 0.18);
+    --color-accent: #f472b6;
+    --color-accent-dark: #db2777;
+    --color-accent-soft: rgba(244, 114, 182, 0.2);
     --shadow-soft: 0px 10px 30px rgba(15, 23, 42, 0.35);
   }
 }
