@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewContratoModal } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { SkeletonTable } from "../../components/skeletons/SkeletonTable";
+import { Toast } from "../../components/Toast";
 import { contratosMock } from "../_mocks/data";
 
+type Contrato = (typeof contratosMock)[number] & { id: string };
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
+
 export default function ContratosPage() {
+  const [contratos, setContratos] = useState<Contrato[]>(() =>
+    contratosMock.map((contrato, index) => ({ ...contrato, id: `contrato-${index}` }))
+  );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(contrato: Contrato) {
+    setContratos((previous) => [contrato, ...previous]);
+    setToast({ message: "Contrato criado com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -15,7 +40,10 @@ export default function ContratosPage() {
             <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
               Enviar para assinatura
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setModalOpen(true)}
+            >
               Novo contrato
             </button>
           </>
@@ -23,9 +51,9 @@ export default function ContratosPage() {
       />
 
       <section className="grid gap-4 md:grid-cols-2">
-        {contratosMock.map((contrato) => (
+        {contratos.map((contrato) => (
           <article
-            key={contrato.codigo}
+            key={contrato.id}
             className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm"
           >
             <div className="flex items-center justify-between">
@@ -65,6 +93,9 @@ export default function ContratosPage() {
           />
         </div>
       </section>
+
+      <NewContratoModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleSubmit} />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }

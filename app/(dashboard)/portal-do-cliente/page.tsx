@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewPortalWidgetModal } from "../../components/NewPortalWidgetModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { SkeletonList } from "../../components/skeletons/SkeletonList";
+import { Toast } from "../../components/Toast";
 import { portalClienteMock } from "../_mocks/data";
 
+type PortalWidget = (typeof portalClienteMock)[number] & { id: string };
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
+
 export default function PortalDoClientePage() {
+  const [widgets, setWidgets] = useState<PortalWidget[]>(() =>
+    portalClienteMock.map((widget, index) => ({ ...widget, id: `widget-${index}` }))
+  );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(widget: PortalWidget) {
+    setWidgets((previous) => [widget, ...previous]);
+    setToast({ message: "Widget adicionado ao portal.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -15,17 +40,20 @@ export default function PortalDoClientePage() {
             <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
               Pré-visualizar
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
-              Publicar mudanças
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setModalOpen(true)}
+            >
+              Novo widget
             </button>
           </>
         }
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {portalClienteMock.map((widget) => (
+        {widgets.map((widget) => (
           <article
-            key={widget.titulo}
+            key={widget.id}
             className="flex flex-col gap-4 rounded-2xl bg-[color:var(--color-surface-alt)] p-5 shadow-[var(--shadow-soft)]"
           >
             <div>
@@ -61,6 +89,9 @@ export default function PortalDoClientePage() {
           />
         </div>
       </section>
+
+      <NewPortalWidgetModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleSubmit} />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }

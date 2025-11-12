@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 import { EmptyState } from "../../components/EmptyState";
+import { NewClientModal } from "../../components/NewClientModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonList } from "../../components/skeletons/SkeletonList";
 import { SkeletonTable } from "../../components/skeletons/SkeletonTable";
+import { Toast } from "../../components/Toast";
 import { clientesMock } from "../_mocks/data";
 
+type Cliente = (typeof clientesMock)[number] & { id: string };
+
+type ToastState = {
+  message: string;
+  type: "success" | "error" | "info";
+};
+
 export default function ClientesPage() {
+  const [clientes, setClientes] = useState<Cliente[]>(() =>
+    clientesMock.map((cliente, index) => ({ ...cliente, id: `cliente-${index}` }))
+  );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(cliente: Cliente) {
+    setClientes((previous) => [cliente, ...previous]);
+    setToast({ message: "Cliente cadastrado com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <>
       <PageHeader
@@ -15,7 +40,10 @@ export default function ClientesPage() {
             <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
               Importar
             </button>
-            <button className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              onClick={() => setModalOpen(true)}
+            >
               Novo cliente
             </button>
           </>
@@ -30,10 +58,13 @@ export default function ClientesPage() {
           </div>
           <div className="flex flex-wrap gap-2 text-xs">
             <span className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-[color:var(--color-primary)]">
-              Total {clientesMock.length}
+              Total {clientes.length}
             </span>
             <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[color:var(--color-text-muted)]">
               Segmentos 3
+            </span>
+            <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[color:var(--color-text-muted)]">
+              Última importação há 5 dias
             </span>
           </div>
         </header>
@@ -44,8 +75,8 @@ export default function ClientesPage() {
             <span>Status</span>
             <span className="text-right">Potencial</span>
           </div>
-          {clientesMock.map((cliente) => (
-            <div key={cliente.nome} className="grid gap-4 px-5 py-4 text-sm text-[color:var(--color-text-muted)] md:grid-cols-4">
+          {clientes.map((cliente) => (
+            <div key={cliente.id} className="grid gap-4 px-5 py-4 text-sm text-[color:var(--color-text-muted)] md:grid-cols-4">
               <div>
                 <p className="font-medium text-[color:var(--color-text)]">{cliente.nome}</p>
                 <p>Relacionamento ativo</p>
@@ -73,6 +104,9 @@ export default function ClientesPage() {
           />
         </div>
       </section>
+
+      <NewClientModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleSubmit} />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </>
   );
 }
