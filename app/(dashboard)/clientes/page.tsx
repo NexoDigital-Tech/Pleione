@@ -37,7 +37,7 @@ export default function ClientesPage() {
         description="Protótipo para navegação com dados mockados. Utilize esta base para estruturar filtros, detalhes e fluxos de cadastro nas próximas sprints."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Importar
             </button>
             <button
@@ -57,8 +57,8 @@ export default function ClientesPage() {
             <p className="text-sm text-[color:var(--color-text-muted)]">Dados fictícios para navegação e validação de layout.</p>
           </div>
           <div className="flex flex-wrap gap-2 text-xs">
-            <span className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-[color:var(--color-primary)]">
-              Total {clientes.length}
+            <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-[color:var(--color-accent)]">
+              Total {clientesMock.length}
             </span>
             <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[color:var(--color-text-muted)]">
               Segmentos 3

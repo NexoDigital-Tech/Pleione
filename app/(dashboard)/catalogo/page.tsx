@@ -37,7 +37,7 @@ export default function CatalogoPage() {
         description="Lista mockada de serviços e produtos para composição de propostas e portal do cliente."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Gerenciar categorias
             </button>
             <button
@@ -56,8 +56,8 @@ export default function CatalogoPage() {
             <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Itens mockados</h2>
             <p className="text-sm text-[color:var(--color-text-muted)]">Organizados por categoria e tempo de entrega.</p>
           </div>
-          <span className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)]">
-            {items.length} itens
+          <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-accent)]">
+            {catalogoMock.length} itens
           </span>
         </header>
         <ul className="divide-y divide-[color:var(--color-border)]">

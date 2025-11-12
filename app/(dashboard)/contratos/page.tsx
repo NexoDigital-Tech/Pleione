@@ -37,7 +37,7 @@ export default function ContratosPage() {
         description="Controle mockado de contratos ativos, revisão de cláusulas e vigência."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Enviar para assinatura
             </button>
             <button
@@ -58,7 +58,7 @@ export default function ContratosPage() {
           >
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{contrato.codigo}</h2>
-              <span className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)]">
+              <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-accent)]">
                 {contrato.status}
               </span>
             </div>

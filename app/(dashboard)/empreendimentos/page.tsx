@@ -37,7 +37,7 @@ export default function EmpreendimentosPage() {
         description="Acompanhe lançamentos e status das obras utilizando cards e linhas do tempo mockadas."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Filtrar fases
             </button>
             <button
@@ -78,7 +78,7 @@ export default function EmpreendimentosPage() {
               </div>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-[color:var(--color-text-muted)]">
-              <span className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-[color:var(--color-primary)]">
+              <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-[color:var(--color-accent)]">
                 Etapa crítica
               </span>
               <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1">

@@ -19,7 +19,7 @@ type ToastState = {
 
 const statusClass: Record<string, string> = {
   "Em análise": "bg-[color:var(--color-warning)]/10 text-[color:var(--color-warning)]",
-  Enviado: "bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]",
+  Enviado: "bg-[color:var(--color-accent-soft)] text-[color:var(--color-accent)]",
   Rascunho: "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]",
 };
 
@@ -41,7 +41,7 @@ export default function PropostasPage() {
         description="Fluxo mockado para geração, envio e acompanhamento de propostas comerciais."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]">
+            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
               Exportar
             </button>
             <button

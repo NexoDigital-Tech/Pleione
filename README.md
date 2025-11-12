@@ -26,6 +26,14 @@ Acesse [http://localhost:3000](http://localhost:3000) para navegar entre as pág
 - `docs/design-system.md`: tokens de tema e padrões visuais.
 - `docs/arquitetura-frontend.md`: convenções de pastas, rotas e componentes.
 
+## Diretriz cromática 60/30/10
+
+- **60% superfícies claras** – utilize `--color-surface`, `--color-surface-alt` e `--color-surface-muted` para backgrounds, cards e divisores. Eles reinterpretam o neutro do logotipo (`#666666`) para garantir contraste com textos (`--color-text`, `--color-text-muted`).
+- **30% azul primário** – aplique `--color-primary`, `--color-primary-dark` e `--color-primary-soft` em CTAs, destaques navegacionais e estados ativos. Eles mantêm a hierarquia principal e funcionam tanto em temas claros quanto no modo dark equivalente.
+- **10% rosa de acento** – reserve `--color-accent`, `--color-accent-dark` e `--color-accent-soft` para badges, botões secundários e indicadores de status. Esse limite evita competição com o primário e facilita identificar ações contextuais.
+
+> Ao criar novos componentes, valide se a distribuição estimada permanece próxima do 60/30/10: superfícies neutras como base, azul para ações principais/feedback contínuo e rosa somente para realces pontuais.
+
 ## Critérios de aceite atendidos
 
 - Navegação completa entre todas as rotas mockadas.
