@@ -20,6 +20,13 @@ import { ContractTeamSelector } from "./ContractTeamSelector";
 import { ContractTermsForm } from "./ContractTermsForm";
 import { Drawer } from "./Drawer";
 
+export type ContratoPayload = {
+  id: string;
+  codigo: string;
+  cliente: string;
+  vigencia: string;
+  status: string;
+  valorTotal?: number;
 const steps = [
   { id: "basic", label: "Dados básicos" },
   { id: "doc", label: "Template e documento" },
