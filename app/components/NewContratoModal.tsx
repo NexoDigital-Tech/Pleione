@@ -28,6 +28,7 @@ export type ContratoPayload = {
   status: string;
   valorTotal?: number;
 };
+
 const steps = [
   { id: "basic", label: "Dados básicos" },
   { id: "doc", label: "Template e documento" },

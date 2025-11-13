@@ -16,6 +16,7 @@ export function EmptyState({ title, description, actionLabel, onAction }: EmptyS
           type="button"
           onClick={onAction}
           className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+          onClick={onAction}
         >
           {actionLabel}
         </button>
