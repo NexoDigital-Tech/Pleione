@@ -464,7 +464,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
           )}
 
           {additionalErrors.length > 0 && (
-            <ul className="space-y-1 rounded-lg border border-[color:var(--color-danger)] bg-[color:var(--color-danger)]/10 px-3 py-2 text-xs text-[color:var(--color-danger)]">
+            <ul className="space-y-1 rounded-lg border border-[color:var(--color-danger)] bg-[color:var(--color-danger-soft)] px-3 py-2 text-xs text-[color:var(--color-danger)]">
               {additionalErrors.map((message) => (
                 <li key={message}>• {message}</li>
               ))}

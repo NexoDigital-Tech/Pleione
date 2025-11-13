@@ -5,7 +5,9 @@ import { Fragment, useMemo, useState } from "react";
 import { EmptyState } from "../../components/EmptyState";
 import { NewContratoModal, type ContractModalStep } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
+import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
+import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
 import type { Contract } from "./data";
 
@@ -21,6 +23,16 @@ type DrawerState = {
 };
 
 export default function ContratosPage() {
+  const { contracts, addContract } = useSalesStore();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(contrato: ContratoPayload) {
+    addContract({ ...contrato, valorTotal: contrato.valorTotal ?? 0 });
+    setToast({ message: "Contrato criado com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <ContractsProvider>
       <ContractsContent />
@@ -130,6 +142,16 @@ function ContractsContent() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Carregamento de cards</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            <SkeletonCard withBadge />
+            <SkeletonCard lines={4} />
+          </div>
+        </div>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-[320px,1fr]">
