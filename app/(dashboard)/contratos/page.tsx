@@ -3,11 +3,10 @@
 import { useMemo, useState } from "react";
 
 import { EmptyState } from "../../components/EmptyState";
-import { NewContratoModal, type ContratoPayload } from "../../components/NewContratoModal";
 import { NewContratoModal, type ContractModalStep } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
+import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
-import { useSalesStore } from "../propostas/store";
 import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
 
@@ -150,6 +149,10 @@ function ContractsContent() {
           <div className="grid gap-4 md:grid-cols-2">
             <SkeletonCard withBadge />
             <SkeletonCard lines={4} />
+          </div>
+        </div>
+      </section>
+
       <div className="grid gap-6 lg:grid-cols-[320px,1fr]">
         <aside className="space-y-3">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
