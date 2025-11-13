@@ -1,3 +1,5 @@
+'use client';
+
 interface SkeletonTableProps {
   rows?: number;
   columns?: number;
