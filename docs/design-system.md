@@ -19,6 +19,7 @@ A sprint inicial estabelece os tokens de design base utilizados em todo o layout
 | `--color-success` | `#10b981` | `#10b981` | Estados positivos |
 | `--color-warning` | `#f59e0b` | `#f59e0b` | Avisos |
 | `--color-danger` | `#ef4444` | `#ef4444` | Erros |
+| `--color-danger-soft` | `rgba(239,68,68,0.16)` | `rgba(239,68,68,0.24)` | Badges e alertas suaves |
 
 ## Espaçamentos e raios
 

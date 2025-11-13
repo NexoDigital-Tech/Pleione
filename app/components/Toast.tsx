@@ -15,7 +15,7 @@ const styles: Record<ToastType, string> = {
   success:
     'border-[color:var(--color-success)] bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]',
   error:
-    'border-[color:var(--color-danger)] bg-[color:var(--color-danger)]/10 text-[color:var(--color-danger)]',
+    'border-[color:var(--color-danger)] bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]',
   info:
     'border-[color:var(--color-primary)] bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)]',
 };
