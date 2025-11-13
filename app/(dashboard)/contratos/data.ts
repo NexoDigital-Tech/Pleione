@@ -118,7 +118,7 @@ export const contractTeamDirectory: ContractTeamMember[] = [
     name: cliente.contatoPrincipal.nome,
     role: "Representante do cliente",
     email: cliente.contatoPrincipal.email,
-    company: cliente.nome,
+    company: cliente.name,
     type: "Cliente" as const,
   })),
 ];

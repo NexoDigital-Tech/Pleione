@@ -101,7 +101,6 @@ function createInitialDraft(): ProposalDraft {
       observations: "",
     },
     notes: "",
-    linkedContractId: undefined,
   };
 }
 

@@ -114,26 +114,28 @@ function ContractsContent() {
       />
 
       <section className="grid gap-4 md:grid-cols-2">
-        {contracts.map((contrato) => (
+        {contracts.map((contract) => (
           <article
-            key={contrato.id}
+            key={contract.id}
             className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{contrato.codigo}</h2>
+              <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{contract.code}</h2>
               <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-accent)]">
-                {contrato.status}
+                {contract.status}
               </span>
             </div>
-            <p className="text-sm text-[color:var(--color-text-muted)]">Cliente: {contrato.cliente}</p>
+            <p className="text-sm text-[color:var(--color-text-muted)]">Cliente: {contract.client.name}</p>
             <div className="rounded-lg bg-[color:var(--color-surface-muted)] p-4 text-sm text-[color:var(--color-text-muted)]">
               Vigência
-              <p className="text-base font-semibold text-[color:var(--color-text)]">{contrato.vigencia}</p>
+              <p className="text-base font-semibold text-[color:var(--color-text)]">
+                {formatDateRange(contract.terms.startDate, contract.terms.endDate)}
+              </p>
             </div>
             <div className="text-sm text-[color:var(--color-text-muted)]">
               Valor total estimado:
               <p className="text-base font-semibold text-[color:var(--color-text)]">
-                {contrato.valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                {formatCurrency(contract.financialSummary.totalValue)}
               </p>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-[color:var(--color-text-muted)]">
@@ -177,7 +179,7 @@ function ContractsContent() {
                     {contract.status}
                   </span>
                 </div>
-                <p className="text-xs text-[color:var(--color-text-muted)]">{contract.client.nome}</p>
+                    <p className="text-xs text-[color:var(--color-text-muted)]">{contract.client.name}</p>
                 <p className="mt-1 text-xs text-[color:var(--color-text-muted)]">
                   Empreendimento: {contract.enterprise.nome}
                 </p>
@@ -196,7 +198,7 @@ function ContractsContent() {
                       {selectedContract.code}
                     </h2>
                     <p className="text-sm text-[color:var(--color-text-muted)]">
-                      {selectedContract.client.nome} · {selectedContract.client.segmento}
+                      {selectedContract.client.name} · {selectedContract.client.segment}
                     </p>
                     <p className="text-sm text-[color:var(--color-text-muted)]">
                       Contato: {selectedContract.client.contatoPrincipal.nome} · {selectedContract.client.contatoPrincipal.email}
@@ -495,7 +497,9 @@ function ContractsContent() {
         </main>
       </div>
 
-      <NewContratoModal
+    </section>
+
+    <NewContratoModal
         open={drawerState.open}
         onClose={handleDrawerClose}
         contractId={drawerState.contractId}
@@ -506,6 +510,14 @@ function ContractsContent() {
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
       </Fragment>
   );
+}
+
+function formatDate(value: string) {
+  return new Date(value).toLocaleDateString("pt-BR");
+}
+
+function formatDateRange(start: string, end: string) {
+  return `${formatDate(start)} – ${formatDate(end)}`;
 }
 
 function formatCurrency(value: number) {
