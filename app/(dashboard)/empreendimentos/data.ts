@@ -172,8 +172,8 @@ export const ENTERPRISE_LICENCE_CATALOG: EnterpriseLicenceTemplate[] = [
 
 export const ENTERPRISE_CLIENTS: EnterpriseClient[] = clientesMock.map((cliente, index) => ({
   id: `cliente-${index}`,
-  name: cliente.nome,
-  segment: cliente.segmento,
+  name: cliente.name,
+  segment: cliente.segment,
 }));
 
 export const ENTERPRISE_CONTACTS: EnterpriseContact[] = [

@@ -27,6 +27,7 @@ export type ContratoPayload = {
   vigencia: string;
   status: string;
   valorTotal?: number;
+};
 const steps = [
   { id: "basic", label: "Dados básicos" },
   { id: "doc", label: "Template e documento" },
@@ -169,7 +170,7 @@ function createDefaultFormState(): ContractFormState {
   return {
     code: "",
     status: "Rascunho",
-    clientName: defaultClient?.nome ?? "",
+    clientName: defaultClient?.name ?? "",
     enterpriseName: defaultEnterprise?.nome ?? "",
     proposalCode: defaultProposal?.codigo ?? "",
     signature: defaultSignature,
@@ -191,7 +192,7 @@ function contractToFormState(contract: Contract): ContractFormState {
   return {
     code: contract.code,
     status: contract.status,
-    clientName: contract.client.nome,
+    clientName: contract.client.name,
     enterpriseName: contract.enterprise.nome,
     proposalCode: contract.proposal.codigo,
     signature: {
@@ -383,7 +384,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
   }
 
   function buildContract(): Contract | null {
-    const client = contractSelectableOptions.clientes.find((item) => item.nome === formState.clientName);
+    const client = contractSelectableOptions.clientes.find((item) => item.name === formState.clientName);
     const enterprise = contractSelectableOptions.empreendimentos.find((item) => item.nome === formState.enterpriseName);
     const proposal = contractSelectableOptions.propostas.find((item) => item.codigo === formState.proposalCode);
 
@@ -615,8 +616,8 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
                 >
                   {contractSelectableOptions.clientes.map((cliente) => (
-                    <option key={cliente.nome} value={cliente.nome}>
-                      {cliente.nome} · {cliente.segmento}
+                    <option key={cliente.name} value={cliente.name}>
+                      {cliente.name} · {cliente.segment}
                     </option>
                   ))}
                 </select>
