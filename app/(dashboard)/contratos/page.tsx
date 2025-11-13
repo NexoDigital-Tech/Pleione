@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 
 import { EmptyState } from "../../components/EmptyState";
 import { NewContratoModal, type ContractModalStep } from "../../components/NewContratoModal";
@@ -9,6 +9,7 @@ import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
 import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
+import type { Contract } from "./data";
 
 type ToastState = {
   message: string;
@@ -89,7 +90,7 @@ function ContractsContent() {
   }
 
   return (
-    <>
+    <Fragment>
       <PageHeader
         title="Contratos"
         description="Monitore o ciclo de vida contratual com contexto de assinatura, termos e faturamento."
@@ -503,7 +504,7 @@ function ContractsContent() {
       />
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
-    </>
+      </Fragment>
   );
 }
 
