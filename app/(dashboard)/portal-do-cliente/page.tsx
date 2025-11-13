@@ -86,6 +86,7 @@ export default function PortalDoClientePage() {
             title="Nenhum widget ativo"
             description="Ative componentes para disponibilizar informações aos clientes."
             actionLabel="Adicionar widget"
+            onAction={() => setModalOpen(true)}
           />
         </div>
       </section>

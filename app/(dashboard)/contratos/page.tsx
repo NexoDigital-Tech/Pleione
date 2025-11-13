@@ -22,6 +22,16 @@ type DrawerState = {
 };
 
 export default function ContratosPage() {
+  const { contracts, addContract } = useSalesStore();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
+
+  function handleSubmit(contrato: ContratoPayload) {
+    addContract({ ...contrato, valorTotal: contrato.valorTotal ?? 0 });
+    setToast({ message: "Contrato criado com sucesso.", type: "success" });
+    return true;
+  }
+
   return (
     <ContractsProvider>
       <ContractsContent />
