@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { AppHeader } from "./components/navigation/AppHeader";
 import { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 import { Sidebar, type NavItem } from "./components/navigation/Sidebar";
 
-const geistSans = GeistSans({
+const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = GeistMono({
+const geistMono = Roboto_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
