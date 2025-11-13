@@ -31,6 +31,8 @@ export default function ContratosPage() {
     addContract({ ...contrato, valorTotal: contrato.valorTotal ?? 0 });
     setToast({ message: "Contrato criado com sucesso.", type: "success" });
     return true;
+  }
+
   return (
     <ContractsProvider>
       <ContractsContent />

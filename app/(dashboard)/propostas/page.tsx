@@ -145,6 +145,7 @@ export default function PropostasPage() {
           title="Nenhuma proposta cadastrada"
           description="Crie uma nova proposta para acompanhar o funil comercial e gerar contratos."
           actionLabel="Cadastrar proposta"
+          onAction={() => setSheetOpen(true)}
         />
       ) : viewMode === "cards" ? (
         <section className="grid gap-5 xl:grid-cols-2">
@@ -344,6 +345,7 @@ export default function PropostasPage() {
             title="Nenhum registro filtrado"
             description="Ajuste filtros ou cadastre uma nova proposta para visualizar resultados."
             actionLabel="Criar proposta"
+            onAction={() => setSheetOpen(true)}
           />
         </div>
       </section>

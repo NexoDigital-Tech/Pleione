@@ -212,6 +212,7 @@ function ClientesPageContent() {
             title="Nenhum cliente neste filtro"
             description="Aplique outro critério ou cadastre um cliente manualmente."
             actionLabel="Cadastrar cliente"
+            onAction={() => setModalOpen(true)}
           />
         </div>
       </section>
