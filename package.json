@@ -11,7 +11,8 @@
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "next": "14.2.5"
+    "next": "14.2.5",
+    "geist": "file:packages/geist"
   },
   "devDependencies": {
     "typescript": "^5",

@@ -1,0 +1,9 @@
+{
+  "name": "geist",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./font/sans": "./font/sans.js",
+    "./font/mono": "./font/mono.js"
+  }
+}
