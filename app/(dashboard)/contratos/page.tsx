@@ -3,11 +3,10 @@
 import { useMemo, useState } from "react";
 
 import { EmptyState } from "../../components/EmptyState";
-import { NewContratoModal, type ContratoPayload } from "../../components/NewContratoModal";
 import { NewContratoModal, type ContractModalStep } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
+import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
-import { useSalesStore } from "../propostas/store";
 import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
 
@@ -23,14 +22,6 @@ type DrawerState = {
 };
 
 export default function ContratosPage() {
-  const { contracts, addContract } = useSalesStore();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [toast, setToast] = useState<ToastState | null>(null);
-
-  function handleSubmit(contrato: ContratoPayload) {
-    addContract({ ...contrato, valorTotal: contrato.valorTotal ?? 0 });
-    setToast({ message: "Contrato criado com sucesso.", type: "success" });
-    return true;
   return (
     <ContractsProvider>
       <ContractsContent />
@@ -148,6 +139,10 @@ function ContractsContent() {
           <div className="grid gap-4 md:grid-cols-2">
             <SkeletonCard withBadge />
             <SkeletonCard lines={4} />
+          </div>
+        </div>
+      </section>
+
       <div className="grid gap-6 lg:grid-cols-[320px,1fr]">
         <aside className="space-y-3">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
