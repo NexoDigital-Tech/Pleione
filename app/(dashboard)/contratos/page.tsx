@@ -498,9 +498,7 @@ function ContractsContent() {
         </main>
       </div>
 
-    </section>
-
-    <NewContratoModal
+      <NewContratoModal
         open={drawerState.open}
         onClose={handleDrawerClose}
         contractId={drawerState.contractId}
