@@ -7,7 +7,6 @@ import { NewContratoModal, type ContratoPayload, type ContractModalStep } from "
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
-import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
 import type { Contract } from "./data";
 import { useSalesStore } from "../propostas/store";
