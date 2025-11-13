@@ -20,12 +20,12 @@ type ViewMode = "cards" | "table";
 const approvalBadge: Record<string, string> = {
   Aprovado: "bg-[color:var(--color-success)]/15 text-[color:var(--color-success)]",
   Pendente: "bg-[color:var(--color-warning)]/15 text-[color:var(--color-warning)]",
-  Reprovado: "bg-[color:var(--color-danger)]/15 text-[color:var(--color-danger)]",
+  Reprovado: "bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]",
 };
 
 const paymentBadge: Record<string, string> = {
   "Em dia": "bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)]",
-  "Em atraso": "bg-[color:var(--color-danger)]/10 text-[color:var(--color-danger)]",
+  "Em atraso": "bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]",
   Quitado: "bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]",
 };
 
