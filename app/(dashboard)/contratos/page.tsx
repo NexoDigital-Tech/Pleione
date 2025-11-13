@@ -3,13 +3,14 @@
 import { Fragment, useMemo, useState } from "react";
 
 import { EmptyState } from "../../components/EmptyState";
-import { NewContratoModal, type ContractModalStep } from "../../components/NewContratoModal";
+import { NewContratoModal, type ContratoPayload, type ContractModalStep } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { Toast } from "../../components/Toast";
 import type { Contract } from "./data";
 import { ContractsProvider, useContractsStore } from "./store";
 import type { Contract } from "./data";
+import { useSalesStore } from "../propostas/store";
 
 type ToastState = {
   message: string;
