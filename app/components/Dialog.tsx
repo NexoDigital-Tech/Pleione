@@ -34,7 +34,7 @@ export function Dialog({ open, onClose, title, description, children, footer }: 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-6">
-      <div className="relative w-full max-w-lg rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 shadow-[var(--shadow-soft)]">
+      <div className="relative w-full max-w-3xl rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 shadow-[var(--shadow-soft)]">
         <button
           type="button"
           onClick={onClose}
