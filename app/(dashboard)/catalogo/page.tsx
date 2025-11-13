@@ -93,6 +93,7 @@ export default function CatalogoPage() {
             title="Nenhum item cadastrado"
             description="Cadastre itens para compor o catálogo inicial da plataforma."
             actionLabel="Criar item"
+            onAction={() => setModalOpen(true)}
           />
         </div>
       </section>
