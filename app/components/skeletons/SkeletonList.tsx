@@ -1,3 +1,5 @@
+'use client';
+
 interface SkeletonListProps {
   items?: number;
   withAvatar?: boolean;

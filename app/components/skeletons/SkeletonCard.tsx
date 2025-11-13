@@ -1,3 +1,5 @@
+'use client';
+
 interface SkeletonCardProps {
   lines?: number;
   withBadge?: boolean;
