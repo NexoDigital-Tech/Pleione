@@ -3,14 +3,12 @@
 import { useState } from "react";
 
 import { EmptyState } from "../../components/EmptyState";
-import { NewContratoModal } from "../../components/NewContratoModal";
+import { NewContratoModal, type ContratoPayload } from "../../components/NewContratoModal";
 import { PageHeader } from "../../components/PageHeader";
 import { SkeletonCard } from "../../components/skeletons/SkeletonCard";
 import { SkeletonTable } from "../../components/skeletons/SkeletonTable";
 import { Toast } from "../../components/Toast";
-import { contratosMock } from "../_mocks/data";
-
-type Contrato = (typeof contratosMock)[number] & { id: string };
+import { useSalesStore } from "../propostas/store";
 
 type ToastState = {
   message: string;
@@ -18,14 +16,12 @@ type ToastState = {
 };
 
 export default function ContratosPage() {
-  const [contratos, setContratos] = useState<Contrato[]>(() =>
-    contratosMock.map((contrato, index) => ({ ...contrato, id: `contrato-${index}` }))
-  );
+  const { contracts, addContract } = useSalesStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [toast, setToast] = useState<ToastState | null>(null);
 
-  function handleSubmit(contrato: Contrato) {
-    setContratos((previous) => [contrato, ...previous]);
+  function handleSubmit(contrato: ContratoPayload) {
+    addContract({ ...contrato, valorTotal: contrato.valorTotal ?? 0 });
     setToast({ message: "Contrato criado com sucesso.", type: "success" });
     return true;
   }
@@ -51,7 +47,7 @@ export default function ContratosPage() {
       />
 
       <section className="grid gap-4 md:grid-cols-2">
-        {contratos.map((contrato) => (
+        {contracts.map((contrato) => (
           <article
             key={contrato.id}
             className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm"
@@ -66,6 +62,12 @@ export default function ContratosPage() {
             <div className="rounded-lg bg-[color:var(--color-surface-muted)] p-4 text-sm text-[color:var(--color-text-muted)]">
               Vigência
               <p className="text-base font-semibold text-[color:var(--color-text)]">{contrato.vigencia}</p>
+            </div>
+            <div className="text-sm text-[color:var(--color-text-muted)]">
+              Valor total estimado:
+              <p className="text-base font-semibold text-[color:var(--color-text)]">
+                {contrato.valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-[color:var(--color-text-muted)]">
               <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1">Revisão jurídica em 7 dias</span>

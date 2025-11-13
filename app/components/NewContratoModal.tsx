@@ -4,12 +4,13 @@ import { FormEvent, useState } from 'react';
 
 import { Dialog } from './Dialog';
 
-type ContratoPayload = {
+export type ContratoPayload = {
   id: string;
   codigo: string;
   cliente: string;
   vigencia: string;
   status: string;
+  valorTotal?: number;
 };
 
 interface NewContratoModalProps {
