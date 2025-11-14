@@ -44,18 +44,18 @@ export function MilestonesEditor({ milestones, onChange, error }: MilestonesEdit
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Marcos do projeto</h3>
+        <h3 className="text-sm font-semibold text-[var(--color-text)]">Marcos do projeto</h3>
         <button
           type="button"
           onClick={handleAdd}
-          className="text-xs font-semibold text-[color:var(--color-accent)] hover:text-[color:var(--color-accent-dark)]"
+          className="text-xs font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-dark)]"
         >
           Adicionar marco
         </button>
       </div>
 
       {milestones.length === 0 ? (
-        <p className="text-xs text-[color:var(--color-text-muted)]">
+        <p className="text-xs text-[var(--color-text-muted)]">
           Inclua datas-chave para acompanhar entregas relevantes da proposta.
         </p>
       ) : (
@@ -63,14 +63,14 @@ export function MilestonesEditor({ milestones, onChange, error }: MilestonesEdit
           {milestones.map((milestone, index) => (
             <div
               key={milestone.id}
-              className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4"
+              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <h4 className="text-sm font-semibold text-[color:var(--color-text)]">{milestone.title}</h4>
+                <h4 className="text-sm font-semibold text-[var(--color-text)]">{milestone.title}</h4>
                 <button
                   type="button"
                   onClick={() => handleRemove(index)}
-                  className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-danger)] hover:text-[color:var(--color-danger)]/80"
+                  className="text-xs font-semibold uppercase tracking-wide text-[var(--color-danger)] hover:text-[var(--color-danger)]/80"
                 >
                   Remover
                 </button>
@@ -78,36 +78,36 @@ export function MilestonesEditor({ milestones, onChange, error }: MilestonesEdit
 
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Título</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Título</label>
                   <input
                     value={milestone.title}
                     onChange={(event) => handleUpdate(index, "title", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Responsável</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Responsável</label>
                   <input
                     value={milestone.responsible}
                     onChange={(event) => handleUpdate(index, "responsible", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Data prevista</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Data prevista</label>
                   <input
                     type="date"
                     value={milestone.expectedDate}
                     onChange={(event) => handleUpdate(index, "expectedDate", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Status</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Status</label>
                   <select
                     value={milestone.status}
                     onChange={(event) => handleUpdate(index, "status", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   >
                     <option value="pending">Pendente</option>
                     <option value="completed">Concluído</option>
@@ -115,12 +115,12 @@ export function MilestonesEditor({ milestones, onChange, error }: MilestonesEdit
                   </select>
                 </div>
                 <div className="md:col-span-2 space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Descrição</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Descrição</label>
                   <textarea
                     value={milestone.description ?? ""}
                     onChange={(event) => handleUpdate(index, "description", event.target.value)}
                     rows={2}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ export function MilestonesEditor({ milestones, onChange, error }: MilestonesEdit
         </div>
       )}
 
-      {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+      {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
     </div>
   );
 }

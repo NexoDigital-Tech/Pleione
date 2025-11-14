@@ -123,40 +123,40 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
         return (
           <div className="space-y-4">
             <div className="space-y-1">
-              <label htmlFor="enterprise-name" className="text-sm font-medium text-[color:var(--color-text)]">
+              <label htmlFor="enterprise-name" className="text-sm font-medium text-[var(--color-text)]">
                 Nome do empreendimento
               </label>
               <input
                 id="enterprise-name"
                 value={draft.name}
                 onChange={(event) => updateDraft("name", event.target.value)}
-                className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="Novo empreendimento residencial"
               />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1">
-                <label htmlFor="enterprise-code" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-code" className="text-sm font-medium text-[var(--color-text)]">
                   Código interno
                 </label>
                 <input
                   id="enterprise-code"
                   value={draft.code}
                   onChange={(event) => updateDraft("code", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="EMP-210"
                 />
               </div>
               <div className="space-y-1">
-                <label htmlFor="enterprise-manager" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-manager" className="text-sm font-medium text-[var(--color-text)]">
                   Gestor responsável
                 </label>
                 <input
                   id="enterprise-manager"
                   value={draft.manager}
                   onChange={(event) => updateDraft("manager", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Nome do responsável"
                 />
               </div>
@@ -164,14 +164,14 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1">
-                <label htmlFor="enterprise-phase" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-phase" className="text-sm font-medium text-[var(--color-text)]">
                   Fase
                 </label>
                 <select
                   id="enterprise-phase"
                   value={draft.phase}
                   onChange={(event) => updateDraft("phase", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   {ENTERPRISE_PHASES.map((phase) => (
                     <option key={phase} value={phase}>
@@ -181,14 +181,14 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                 </select>
               </div>
               <div className="space-y-1">
-                <label htmlFor="enterprise-status" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-status" className="text-sm font-medium text-[var(--color-text)]">
                   Status de conformidade
                 </label>
                 <select
                   id="enterprise-status"
                   value={draft.status}
                   onChange={(event) => updateDraft("status", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   {ENTERPRISE_STATUSES.map((status) => (
                     <option key={status} value={status}>
@@ -201,7 +201,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1">
-                <label htmlFor="enterprise-client" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-client" className="text-sm font-medium text-[var(--color-text)]">
                   Cliente relacionado
                 </label>
                 <select
@@ -219,7 +219,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                       };
                     });
                   }}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   {ENTERPRISE_CLIENTS.map((client) => (
                     <option key={client.id} value={client.id}>
@@ -229,14 +229,14 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                 </select>
               </div>
               <div className="space-y-1">
-                <label htmlFor="enterprise-contact" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-contact" className="text-sm font-medium text-[var(--color-text)]">
                   Contato principal
                 </label>
                 <select
                   id="enterprise-contact"
                   value={draft.contactId ?? ""}
                   onChange={(event) => updateDraft("contactId", event.target.value || undefined)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   <option value="">Selecionar contato</option>
                   {availableContacts.map((contact) => (
@@ -250,7 +250,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1">
-                <label htmlFor="enterprise-startDate" className="text-sm font-medium text-[color:var(--color-text)]">
+                <label htmlFor="enterprise-startDate" className="text-sm font-medium text-[var(--color-text)]">
                   Data de início
                 </label>
                 <input
@@ -258,27 +258,27 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                   type="date"
                   value={draft.startDate}
                   onChange={(event) => updateDraft("startDate", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]">Progresso</label>
-                <div className="flex items-center gap-3 rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2">
+                <label className="text-sm font-medium text-[var(--color-text)]">Progresso</label>
+                <div className="flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2">
                   <input
                     type="range"
                     min={0}
                     max={100}
                     value={draft.progress}
                     onChange={(event) => updateDraft("progress", Number(event.target.value))}
-                    className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[color:var(--color-surface-muted)]"
+                    className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--color-surface-muted)]"
                   />
-                  <span className="w-10 text-right text-sm font-semibold text-[color:var(--color-text)]">{draft.progress}%</span>
+                  <span className="w-10 text-right text-sm font-semibold text-[var(--color-text)]">{draft.progress}%</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="enterprise-description" className="text-sm font-medium text-[color:var(--color-text)]">
+              <label htmlFor="enterprise-description" className="text-sm font-medium text-[var(--color-text)]">
                 Descrição
               </label>
               <textarea
@@ -286,23 +286,23 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                 value={draft.description}
                 onChange={(event) => updateDraft("description", event.target.value)}
                 rows={3}
-                className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="Resumo das características do empreendimento"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]">Score de compliance</label>
-              <div className="flex items-center gap-3 rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2">
+              <label className="text-sm font-medium text-[var(--color-text)]">Score de compliance</label>
+              <div className="flex items-center gap-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2">
                 <input
                   type="range"
                   min={0}
                   max={100}
                   value={draft.complianceScore}
                   onChange={(event) => updateDraft("complianceScore", Number(event.target.value))}
-                  className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[color:var(--color-surface-muted)]"
+                  className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--color-surface-muted)]"
                 />
-                <span className="w-10 text-right text-sm font-semibold text-[color:var(--color-text)]">{draft.complianceScore}%</span>
+                <span className="w-10 text-right text-sm font-semibold text-[var(--color-text)]">{draft.complianceScore}%</span>
               </div>
             </div>
           </div>
@@ -357,7 +357,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
           <button
             type="button"
             onClick={handleClose}
-            className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+            className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
           >
             Cancelar
           </button>
@@ -365,7 +365,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
             <button
               type="button"
               onClick={handlePreviousStep}
-              className="rounded-full border border-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:border-[color:var(--color-primary-dark)] hover:text-[color:var(--color-primary-dark)]"
+              className="rounded-full border border-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:border-[var(--color-primary-dark)] hover:text-[var(--color-primary-dark)]"
             >
               Voltar
             </button>
@@ -373,7 +373,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
           <button
             type="button"
             onClick={isLastStep ? handleSave : handleNextStep}
-            className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+            className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
           >
             {isLastStep ? "Salvar empreendimento" : "Avançar"}
           </button>
@@ -390,13 +390,13 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
                 key={label}
                 className={`flex items-center gap-2 rounded-full border px-3 py-1 ${
                   isActive
-                    ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
                     : isCompleted
-                    ? "border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[color:var(--color-text)]"
-                    : "border-[color:var(--color-border)] text-[color:var(--color-text-muted)]"
+                    ? "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)]"
+                    : "border-[var(--color-border)] text-[var(--color-text-muted)]"
                 }`}
               >
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[color:var(--color-surface)] text-[color:var(--color-text)]">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-text)]">
                   {index + 1}
                 </span>
                 {label}
@@ -407,7 +407,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
 
         {stepContent}
 
-        {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+        {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
       </div>
     </Dialog>
   );

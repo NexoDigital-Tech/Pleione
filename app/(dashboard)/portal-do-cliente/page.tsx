@@ -37,11 +37,11 @@ export default function PortalDoClientePage() {
         description="Protótipo da experiência do cliente final com cards de widgets, checklist e comunicação."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
+            <button className="rounded-full border border-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-[var(--color-accent)] transition hover:border-[var(--color-accent-dark)] hover:text-[var(--color-accent-dark)]">
               Pré-visualizar
             </button>
             <button
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
               onClick={() => setModalOpen(true)}
             >
               Novo widget
@@ -54,17 +54,17 @@ export default function PortalDoClientePage() {
         {widgets.map((widget) => (
           <article
             key={widget.id}
-            className="flex flex-col gap-4 rounded-2xl bg-[color:var(--color-surface-alt)] p-5 shadow-[var(--shadow-soft)]"
+            className="flex flex-col gap-4 rounded-2xl bg-[var(--color-surface-alt)] p-5 shadow-[var(--shadow-soft)]"
           >
             <div>
-              <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{widget.titulo}</h2>
-              <p className="text-sm text-[color:var(--color-text-muted)]">{widget.status}</p>
+              <h2 className="text-lg font-semibold text-[var(--color-text)]">{widget.titulo}</h2>
+              <p className="text-sm text-[var(--color-text-muted)]">{widget.status}</p>
             </div>
-            <div className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] p-4 text-sm text-[color:var(--color-text-muted)]">
+            <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 text-sm text-[var(--color-text-muted)]">
               Última atualização
-              <p className="text-base font-semibold text-[color:var(--color-text)]">{widget.ultimaAtualizacao}</p>
+              <p className="text-base font-semibold text-[var(--color-text)]">{widget.ultimaAtualizacao}</p>
             </div>
-            <button className="self-start rounded-full bg-[color:var(--color-accent-soft)] px-4 py-2 text-xs font-semibold text-[color:var(--color-accent)]">
+            <button className="self-start rounded-full bg-[var(--color-accent-soft)] px-4 py-2 text-xs font-semibold text-[var(--color-accent)]">
               Configurar widget
             </button>
           </article>
@@ -73,7 +73,7 @@ export default function PortalDoClientePage() {
 
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Carregamento</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Carregamento</h2>
           <div className="grid gap-4 md:grid-cols-2">
             <SkeletonCard />
             <SkeletonCard lines={5} />
@@ -81,7 +81,7 @@ export default function PortalDoClientePage() {
           <SkeletonList items={4} />
         </div>
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Estado vazio</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Estado vazio</h2>
           <EmptyState
             title="Nenhum widget ativo"
             description="Ative componentes para disponibilizar informações aos clientes."

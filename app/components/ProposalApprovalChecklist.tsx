@@ -51,29 +51,29 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
     <div className="space-y-5">
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-1">
-          <label className="text-sm font-medium text-[color:var(--color-text)]">Nome do fluxo</label>
+          <label className="text-sm font-medium text-[var(--color-text)]">Nome do fluxo</label>
           <input
             value={value.flowName}
             onChange={(event) => updateApproval({ flowName: event.target.value })}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
           />
         </div>
         <div className="space-y-1">
-          <label className="text-sm font-medium text-[color:var(--color-text)]">Observações</label>
+          <label className="text-sm font-medium text-[var(--color-text)]">Observações</label>
           <textarea
             value={value.observations ?? ""}
             onChange={(event) => updateApproval({ observations: event.target.value })}
             rows={2}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
           />
         </div>
       </div>
 
-      <div className="space-y-4 rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4">
-        <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Contato principal</h3>
+      <div className="space-y-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+        <h3 className="text-sm font-semibold text-[var(--color-text)]">Contato principal</h3>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="space-y-1">
-            <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Nome</label>
+            <label className="text-xs font-medium text-[var(--color-text-muted)]">Nome</label>
             <input
               value={value.mainContact.name}
               onChange={(event) =>
@@ -81,11 +81,11 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
                   mainContact: { ...value.mainContact, name: event.target.value },
                 })
               }
-              className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+              className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Cargo</label>
+            <label className="text-xs font-medium text-[var(--color-text-muted)]">Cargo</label>
             <input
               value={value.mainContact.role}
               onChange={(event) =>
@@ -93,11 +93,11 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
                   mainContact: { ...value.mainContact, role: event.target.value },
                 })
               }
-              className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+              className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-[color:var(--color-text-muted)]">E-mail</label>
+            <label className="text-xs font-medium text-[var(--color-text-muted)]">E-mail</label>
             <input
               type="email"
               value={value.mainContact.email}
@@ -106,11 +106,11 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
                   mainContact: { ...value.mainContact, email: event.target.value },
                 })
               }
-              className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+              className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Telefone</label>
+            <label className="text-xs font-medium text-[var(--color-text-muted)]">Telefone</label>
             <input
               value={value.mainContact.phone}
               onChange={(event) =>
@@ -118,7 +118,7 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
                   mainContact: { ...value.mainContact, phone: event.target.value },
                 })
               }
-              className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+              className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             />
           </div>
         </div>
@@ -126,69 +126,69 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
 
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Etapas de aprovação</h3>
+          <h3 className="text-sm font-semibold text-[var(--color-text)]">Etapas de aprovação</h3>
           <button
             type="button"
             onClick={handleAddStep}
-            className="text-xs font-semibold text-[color:var(--color-accent)] hover:text-[color:var(--color-accent-dark)]"
+            className="text-xs font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-dark)]"
           >
             Adicionar etapa
           </button>
         </div>
 
         {value.steps.length === 0 ? (
-          <p className="text-xs text-[color:var(--color-text-muted)]">Nenhuma etapa cadastrada.</p>
+          <p className="text-xs text-[var(--color-text-muted)]">Nenhuma etapa cadastrada.</p>
         ) : (
           <div className="space-y-4">
             {value.steps.map((step, index) => (
               <div
                 key={step.id}
-                className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4"
+                className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h4 className="text-sm font-semibold text-[color:var(--color-text)]">
+                  <h4 className="text-sm font-semibold text-[var(--color-text)]">
                     {step.area || `Etapa ${index + 1}`}
                   </h4>
                   <button
                     type="button"
                     onClick={() => handleRemoveStep(index)}
-                    className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-danger)] hover:text-[color:var(--color-danger)]/80"
+                    className="text-xs font-semibold uppercase tracking-wide text-[var(--color-danger)] hover:text-[var(--color-danger)]/80"
                   >
                     Remover
                   </button>
                 </div>
                 <div className="mt-3 grid gap-3 md:grid-cols-2">
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Área</label>
+                    <label className="text-xs font-medium text-[var(--color-text-muted)]">Área</label>
                     <input
                       value={step.area}
                       onChange={(event) => handleStepChange(index, "area", event.target.value)}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Aprovador</label>
+                    <label className="text-xs font-medium text-[var(--color-text-muted)]">Aprovador</label>
                     <input
                       value={step.approver}
                       onChange={(event) => handleStepChange(index, "approver", event.target.value)}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Prazo</label>
+                    <label className="text-xs font-medium text-[var(--color-text-muted)]">Prazo</label>
                     <input
                       type="date"
                       value={step.dueDate}
                       onChange={(event) => handleStepChange(index, "dueDate", event.target.value)}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Status</label>
+                    <label className="text-xs font-medium text-[var(--color-text-muted)]">Status</label>
                     <select
                       value={step.status}
                       onChange={(event) => handleStepChange(index, "status", event.target.value)}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     >
                       <option value="pending">Pendente</option>
                       <option value="approved">Aprovado</option>
@@ -196,12 +196,12 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
                     </select>
                   </div>
                   <div className="md:col-span-2 space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Observações</label>
+                    <label className="text-xs font-medium text-[var(--color-text-muted)]">Observações</label>
                     <textarea
                       value={step.notes ?? ""}
                       onChange={(event) => handleStepChange(index, "notes", event.target.value)}
                       rows={2}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export function ProposalApprovalChecklist({ value, onChange, error }: ProposalAp
         )}
       </div>
 
-      {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+      {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
     </div>
   );
 }

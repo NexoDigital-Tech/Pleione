@@ -69,11 +69,11 @@ export default function EmpreendimentosPage() {
         description="Acompanhe cadastros, localização, conformidade e documentos dos empreendimentos mockados."
         actions={
           <>
-            <div className="hidden gap-2 text-sm text-[color:var(--color-text-muted)] md:flex">
+            <div className="hidden gap-2 text-sm text-[var(--color-text-muted)] md:flex">
               <select
                 value={phaseFilter}
                 onChange={(event) => setPhaseFilter(event.target.value)}
-                className="rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 focus:border-[var(--color-primary)] focus:outline-none"
               >
                 <option value="">Todas as fases</option>
                 {ENTERPRISE_PHASES.map((phase) => (
@@ -85,7 +85,7 @@ export default function EmpreendimentosPage() {
               <select
                 value={statusFilter}
                 onChange={(event) => setStatusFilter(event.target.value)}
-                className="rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 focus:border-[var(--color-primary)] focus:outline-none"
               >
                 <option value="">Todos os status</option>
                 {ENTERPRISE_STATUSES.map((status) => (
@@ -96,7 +96,7 @@ export default function EmpreendimentosPage() {
               </select>
             </div>
             <button
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
               onClick={() => setModalOpen(true)}
             >
               Novo empreendimento
@@ -106,11 +106,11 @@ export default function EmpreendimentosPage() {
       />
 
       <div className="mb-6 flex flex-col gap-3 md:hidden">
-        <label className="text-sm font-medium text-[color:var(--color-text)]">Filtrar por fase</label>
+        <label className="text-sm font-medium text-[var(--color-text)]">Filtrar por fase</label>
         <select
           value={phaseFilter}
           onChange={(event) => setPhaseFilter(event.target.value)}
-          className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 focus:border-[color:var(--color-primary)] focus:outline-none"
+          className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 focus:border-[var(--color-primary)] focus:outline-none"
         >
           <option value="">Todas as fases</option>
           {ENTERPRISE_PHASES.map((phase) => (
@@ -119,11 +119,11 @@ export default function EmpreendimentosPage() {
             </option>
           ))}
         </select>
-        <label className="text-sm font-medium text-[color:var(--color-text)]">Filtrar por status</label>
+        <label className="text-sm font-medium text-[var(--color-text)]">Filtrar por status</label>
         <select
           value={statusFilter}
           onChange={(event) => setStatusFilter(event.target.value)}
-          className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 focus:border-[color:var(--color-primary)] focus:outline-none"
+          className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 focus:border-[var(--color-primary)] focus:outline-none"
         >
           <option value="">Todos os status</option>
           {ENTERPRISE_STATUSES.map((status) => (
@@ -147,58 +147,58 @@ export default function EmpreendimentosPage() {
           return (
             <article
               key={enterprise.id}
-              className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm"
+              className="flex flex-col gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5 shadow-sm"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{enterprise.name}</h2>
-                  <p className="text-sm text-[color:var(--color-text-muted)]">
+                  <h2 className="text-lg font-semibold text-[var(--color-text)]">{enterprise.name}</h2>
+                  <p className="text-sm text-[var(--color-text-muted)]">
                     {enterprise.phase} • {enterprise.status}
                   </p>
                 </div>
-                <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-accent)]">
+                <span className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-accent)]">
                   {enterprise.complianceScore}% compliance
                 </span>
               </div>
-              <p className="text-sm text-[color:var(--color-text-muted)]">{enterprise.description}</p>
-              <div className="grid gap-2 text-xs text-[color:var(--color-text-muted)] sm:grid-cols-2">
+              <p className="text-sm text-[var(--color-text-muted)]">{enterprise.description}</p>
+              <div className="grid gap-2 text-xs text-[var(--color-text-muted)] sm:grid-cols-2">
                 <p>
-                  <span className="font-semibold text-[color:var(--color-text)]">Cliente: </span>
+                  <span className="font-semibold text-[var(--color-text)]">Cliente: </span>
                   {client?.name ?? "—"}
                 </p>
                 <p>
-                  <span className="font-semibold text-[color:var(--color-text)]">Contato: </span>
+                  <span className="font-semibold text-[var(--color-text)]">Contato: </span>
                   {contact ? contact.name : "—"}
                 </p>
                 <p>
-                  <span className="font-semibold text-[color:var(--color-text)]">Início: </span>
+                  <span className="font-semibold text-[var(--color-text)]">Início: </span>
                   {enterprise.startDate ? new Date(enterprise.startDate).toLocaleDateString("pt-BR") : "—"}
                 </p>
                 <p>
-                  <span className="font-semibold text-[color:var(--color-text)]">Gestor: </span>
+                  <span className="font-semibold text-[var(--color-text)]">Gestor: </span>
                   {enterprise.manager || "—"}
                 </p>
               </div>
               <div>
-                <div className="mb-1 flex items-center justify-between text-xs text-[color:var(--color-text-muted)]">
+                <div className="mb-1 flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                   <span>Progresso geral</span>
                   <span>{enterprise.progress}%</span>
                 </div>
-                <div className="h-2 rounded-full bg-[color:var(--color-surface-muted)]">
+                <div className="h-2 rounded-full bg-[var(--color-surface-muted)]">
                   <div
-                    className="h-2 rounded-full bg-[color:var(--color-accent)]"
+                    className="h-2 rounded-full bg-[var(--color-accent)]"
                     style={{ width: `${enterprise.progress}%` }}
                   />
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2 text-xs text-[color:var(--color-text-muted)]">
+              <div className="flex flex-wrap gap-2 text-xs text-[var(--color-text-muted)]">
                 {complianceFlags.map((flag) => (
-                  <span key={flag} className="rounded-full border border-[color:var(--color-border)] px-3 py-1">
+                  <span key={flag} className="rounded-full border border-[var(--color-border)] px-3 py-1">
                     {flag}
                   </span>
                 ))}
                 {enterprise.flags.hasPendingNotifications && (
-                  <span className="rounded-full bg-[color:var(--color-danger-soft)] px-3 py-1 text-[color:var(--color-danger)]">
+                  <span className="rounded-full bg-[var(--color-danger-soft)] px-3 py-1 text-[var(--color-danger)]">
                     Notificações ativas
                   </span>
                 )}
@@ -220,18 +220,18 @@ export default function EmpreendimentosPage() {
         />
       ) : (
         <div className="space-y-8">
-          <section className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm">
+          <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5 shadow-sm">
             <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Resumo de localizações</h2>
-                <p className="text-sm text-[color:var(--color-text-muted)]">
+                <h2 className="text-lg font-semibold text-[var(--color-text)]">Resumo de localizações</h2>
+                <p className="text-sm text-[var(--color-text-muted)]">
                   Cidades, estados e áreas dos empreendimentos ativos conforme filtros.
                 </p>
               </div>
             </header>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-[color:var(--color-border)] text-left text-sm">
-                <thead className="text-xs uppercase text-[color:var(--color-text-muted)]">
+              <table className="min-w-full divide-y divide-[var(--color-border)] text-left text-sm">
+                <thead className="text-xs uppercase text-[var(--color-text-muted)]">
                   <tr>
                     <th className="px-3 py-2 font-semibold">Empreendimento</th>
                     <th className="px-3 py-2 font-semibold">Cidade/UF</th>
@@ -239,10 +239,10 @@ export default function EmpreendimentosPage() {
                     <th className="px-3 py-2 font-semibold">Área</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[color:var(--color-border)] text-[color:var(--color-text-muted)]">
+                <tbody className="divide-y divide-[var(--color-border)] text-[var(--color-text-muted)]">
                   {filteredEnterprises.map((enterprise) => (
                     <tr key={`location-${enterprise.id}`}>
-                      <td className="px-3 py-3 text-[color:var(--color-text)]">{enterprise.name}</td>
+                      <td className="px-3 py-3 text-[var(--color-text)]">{enterprise.name}</td>
                       <td className="px-3 py-3">
                         {enterprise.location.city} / {enterprise.location.state}
                       </td>
@@ -258,18 +258,18 @@ export default function EmpreendimentosPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm">
+          <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5 shadow-sm">
             <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Conformidade e perfil ambiental</h2>
-                <p className="text-sm text-[color:var(--color-text-muted)]">
+                <h2 className="text-lg font-semibold text-[var(--color-text)]">Conformidade e perfil ambiental</h2>
+                <p className="text-sm text-[var(--color-text-muted)]">
                   Status de compliance, classificação de risco e notas registradas.
                 </p>
               </div>
             </header>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-[color:var(--color-border)] text-left text-sm">
-                <thead className="text-xs uppercase text-[color:var(--color-text-muted)]">
+              <table className="min-w-full divide-y divide-[var(--color-border)] text-left text-sm">
+                <thead className="text-xs uppercase text-[var(--color-text-muted)]">
                   <tr>
                     <th className="px-3 py-2 font-semibold">Empreendimento</th>
                     <th className="px-3 py-2 font-semibold">Status</th>
@@ -277,10 +277,10 @@ export default function EmpreendimentosPage() {
                     <th className="px-3 py-2 font-semibold">Notas</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[color:var(--color-border)] text-[color:var(--color-text-muted)]">
+                <tbody className="divide-y divide-[var(--color-border)] text-[var(--color-text-muted)]">
                   {filteredEnterprises.map((enterprise) => (
                     <tr key={`compliance-${enterprise.id}`}>
-                      <td className="px-3 py-3 text-[color:var(--color-text)]">{enterprise.name}</td>
+                      <td className="px-3 py-3 text-[var(--color-text)]">{enterprise.name}</td>
                       <td className="px-3 py-3">
                         {enterprise.status}
                         {enterprise.flags.hasPendingNotifications ? " • Pendências" : ""}
@@ -294,18 +294,18 @@ export default function EmpreendimentosPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm">
+          <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5 shadow-sm">
             <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Licenças vigentes</h2>
-                <p className="text-sm text-[color:var(--color-text-muted)]">
+                <h2 className="text-lg font-semibold text-[var(--color-text)]">Licenças vigentes</h2>
+                <p className="text-sm text-[var(--color-text-muted)]">
                   Consolidação das licenças selecionadas a partir do catálogo.
                 </p>
               </div>
             </header>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-[color:var(--color-border)] text-left text-sm">
-                <thead className="text-xs uppercase text-[color:var(--color-text-muted)]">
+              <table className="min-w-full divide-y divide-[var(--color-border)] text-left text-sm">
+                <thead className="text-xs uppercase text-[var(--color-text-muted)]">
                   <tr>
                     <th className="px-3 py-2 font-semibold">Empreendimento</th>
                     <th className="px-3 py-2 font-semibold">Licença</th>
@@ -314,10 +314,10 @@ export default function EmpreendimentosPage() {
                     <th className="px-3 py-2 font-semibold">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[color:var(--color-border)] text-[color:var(--color-text-muted)]">
+                <tbody className="divide-y divide-[var(--color-border)] text-[var(--color-text-muted)]">
                   {licencesRows.map(({ enterprise, licence }) => (
                     <tr key={`${enterprise.id}-${licence.id}`}>
-                      <td className="px-3 py-3 text-[color:var(--color-text)]">{enterprise.name}</td>
+                      <td className="px-3 py-3 text-[var(--color-text)]">{enterprise.name}</td>
                       <td className="px-3 py-3">{licence.name}</td>
                       <td className="px-3 py-3">{licence.category}</td>
                       <td className="px-3 py-3">
@@ -328,7 +328,7 @@ export default function EmpreendimentosPage() {
                   ))}
                   {licencesRows.length === 0 && (
                     <tr>
-                      <td className="px-3 py-4 text-center text-[color:var(--color-text-muted)]" colSpan={5}>
+                      <td className="px-3 py-4 text-center text-[var(--color-text-muted)]" colSpan={5}>
                         Nenhuma licença adicionada para os filtros atuais.
                       </td>
                     </tr>
@@ -338,18 +338,18 @@ export default function EmpreendimentosPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-5 shadow-sm">
+          <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5 shadow-sm">
             <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Documentos anexados</h2>
-                <p className="text-sm text-[color:var(--color-text-muted)]">
+                <h2 className="text-lg font-semibold text-[var(--color-text)]">Documentos anexados</h2>
+                <p className="text-sm text-[var(--color-text-muted)]">
                   Versionamento mockado de memoriais, relatórios e anexos de compliance.
                 </p>
               </div>
             </header>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-[color:var(--color-border)] text-left text-sm">
-                <thead className="text-xs uppercase text-[color:var(--color-text-muted)]">
+              <table className="min-w-full divide-y divide-[var(--color-border)] text-left text-sm">
+                <thead className="text-xs uppercase text-[var(--color-text-muted)]">
                   <tr>
                     <th className="px-3 py-2 font-semibold">Empreendimento</th>
                     <th className="px-3 py-2 font-semibold">Documento</th>
@@ -358,10 +358,10 @@ export default function EmpreendimentosPage() {
                     <th className="px-3 py-2 font-semibold">Upload</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[color:var(--color-border)] text-[color:var(--color-text-muted)]">
+                <tbody className="divide-y divide-[var(--color-border)] text-[var(--color-text-muted)]">
                   {documentsRows.map(({ enterprise, document }) => (
                     <tr key={`${enterprise.id}-${document.id}`}>
-                      <td className="px-3 py-3 text-[color:var(--color-text)]">{enterprise.name}</td>
+                      <td className="px-3 py-3 text-[var(--color-text)]">{enterprise.name}</td>
                       <td className="px-3 py-3">{document.name}</td>
                       <td className="px-3 py-3">{document.category}</td>
                       <td className="px-3 py-3">{document.owner}</td>
@@ -374,7 +374,7 @@ export default function EmpreendimentosPage() {
                   ))}
                   {documentsRows.length === 0 && (
                     <tr>
-                      <td className="px-3 py-4 text-center text-[color:var(--color-text-muted)]" colSpan={5}>
+                      <td className="px-3 py-4 text-center text-[var(--color-text-muted)]" colSpan={5}>
                         Nenhum documento anexado para os filtros atuais.
                       </td>
                     </tr>

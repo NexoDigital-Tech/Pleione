@@ -64,7 +64,7 @@ export function EnterpriseLicencesEditor({ value, onChange, catalog }: Enterpris
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-[color:var(--color-text-muted)]">
+      <p className="text-sm text-[var(--color-text-muted)]">
         Selecione licenças do catálogo abaixo e ajuste vigência e status conforme necessário.
       </p>
       <div className="grid gap-3">
@@ -73,7 +73,7 @@ export function EnterpriseLicencesEditor({ value, onChange, catalog }: Enterpris
           return (
             <div
               key={template.id}
-              className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 shadow-[var(--shadow-soft)]"
+              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 shadow-[var(--shadow-soft)]"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <div>
@@ -83,19 +83,19 @@ export function EnterpriseLicencesEditor({ value, onChange, catalog }: Enterpris
                       type="checkbox"
                       checked={Boolean(current)}
                       onChange={() => toggleLicence(template)}
-                      className="h-4 w-4 rounded border-[color:var(--color-border)] text-[color:var(--color-primary)] focus:ring-[color:var(--color-primary)]"
+                      className="h-4 w-4 rounded border-[var(--color-border)] text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                     />
                     <label
                       htmlFor={`enterprise-licence-${template.id}`}
-                      className="text-sm font-semibold text-[color:var(--color-text)]"
+                      className="text-sm font-semibold text-[var(--color-text)]"
                     >
                       {template.name}
                     </label>
                   </div>
-                  <p className="ml-7 text-xs text-[color:var(--color-text-muted)]">{template.description}</p>
+                  <p className="ml-7 text-xs text-[var(--color-text-muted)]">{template.description}</p>
                 </div>
-                <div className="text-xs text-[color:var(--color-text-muted)]">
-                  <p className="font-medium text-[color:var(--color-text)]">Órgão emissor</p>
+                <div className="text-xs text-[var(--color-text-muted)]">
+                  <p className="font-medium text-[var(--color-text)]">Órgão emissor</p>
                   <p>{template.issuer}</p>
                   <p className="mt-1">
                     Vigência sugerida: {template.defaultValidityMonths} meses
@@ -105,11 +105,11 @@ export function EnterpriseLicencesEditor({ value, onChange, catalog }: Enterpris
               {current && (
                 <div className="mt-4 grid gap-4 sm:grid-cols-3">
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text)]">Status</label>
+                    <label className="text-xs font-medium text-[var(--color-text)]">Status</label>
                     <select
                       value={current.status}
                       onChange={(event) => updateLicence(template.id, { status: event.target.value as EnterpriseLicence["status"] })}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     >
                       {LICENCE_STATUS.map((status) => (
                         <option key={status} value={status}>
@@ -119,20 +119,20 @@ export function EnterpriseLicencesEditor({ value, onChange, catalog }: Enterpris
                     </select>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text)]">Válido até</label>
+                    <label className="text-xs font-medium text-[var(--color-text)]">Válido até</label>
                     <input
                       type="date"
                       value={current.validUntil}
                       onChange={(event) => updateLicence(template.id, { validUntil: event.target.value })}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-[color:var(--color-text)]">Categoria</label>
+                    <label className="text-xs font-medium text-[var(--color-text)]">Categoria</label>
                     <input
                       disabled
                       value={current.category}
-                      className="w-full cursor-not-allowed rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text-muted)]"
+                      className="w-full cursor-not-allowed rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text-muted)]"
                     />
                   </div>
                 </div>

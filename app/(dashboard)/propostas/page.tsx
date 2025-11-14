@@ -18,15 +18,15 @@ interface ToastState {
 type ViewMode = "cards" | "table";
 
 const approvalBadge: Record<string, string> = {
-  Aprovado: "bg-[color:var(--color-success)]/15 text-[color:var(--color-success)]",
-  Pendente: "bg-[color:var(--color-warning)]/15 text-[color:var(--color-warning)]",
-  Reprovado: "bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]",
+  Aprovado: "bg-[var(--color-success)]/15 text-[var(--color-success)]",
+  Pendente: "bg-[var(--color-warning)]/15 text-[var(--color-warning)]",
+  Reprovado: "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
 };
 
 const paymentBadge: Record<string, string> = {
-  "Em dia": "bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)]",
-  "Em atraso": "bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]",
-  Quitado: "bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]",
+  "Em dia": "bg-[var(--color-primary)]/10 text-[var(--color-primary)]",
+  "Em atraso": "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  Quitado: "bg-[var(--color-success)]/10 text-[var(--color-success)]",
 };
 
 function formatCurrency(value: number) {
@@ -125,13 +125,13 @@ export default function PropostasPage() {
             <button
               type="button"
               onClick={() => setViewMode((previous) => (previous === "cards" ? "table" : "cards"))}
-              className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
             >
               {viewMode === "cards" ? "Visão em tabela" : "Visão em cards"}
             </button>
             <button
               type="button"
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
               onClick={() => setSheetOpen(true)}
             >
               Nova proposta
@@ -159,102 +159,102 @@ export default function PropostasPage() {
             return (
               <article
                 key={proposal.id}
-                className="flex flex-col gap-5 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 shadow-sm"
+                className="flex flex-col gap-5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-6 shadow-sm"
               >
                 <header className="flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-[color:var(--color-text-muted)]">
+                    <p className="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">
                       {proposal.code}
                     </p>
-                    <h2 className="text-lg font-semibold text-[color:var(--color-text)]">
+                    <h2 className="text-lg font-semibold text-[var(--color-text)]">
                       {proposal.title}
                     </h2>
-                    <p className="text-sm text-[color:var(--color-text-muted)]">{proposal.client}</p>
+                    <p className="text-sm text-[var(--color-text-muted)]">{proposal.client}</p>
                   </div>
                   <div className="flex flex-col items-end gap-2 text-xs">
-                    <span className="rounded-full bg-[color:var(--color-primary)]/10 px-3 py-1 font-semibold text-[color:var(--color-primary)]">
+                    <span className="rounded-full bg-[var(--color-primary)]/10 px-3 py-1 font-semibold text-[var(--color-primary)]">
                       {proposal.status}
                     </span>
-                    <span className="text-[color:var(--color-text-muted)]">
+                    <span className="text-[var(--color-text-muted)]">
                       Probabilidade: {(proposal.probability * 100).toFixed(0)}%
                     </span>
                   </div>
                 </header>
 
-                <div className="grid gap-4 rounded-xl bg-[color:var(--color-surface)] p-4 text-sm">
+                <div className="grid gap-4 rounded-xl bg-[var(--color-surface)] p-4 text-sm">
                   <div className="flex items-center justify-between">
-                    <p className="text-[color:var(--color-text-muted)]">Cronograma</p>
-                    <span className="text-sm font-semibold text-[color:var(--color-text)]">
+                    <p className="text-[var(--color-text-muted)]">Cronograma</p>
+                    <span className="text-sm font-semibold text-[var(--color-text)]">
                       {scheduleProgress}% concluído
                     </span>
                   </div>
-                  <div className="h-2 rounded-full bg-[color:var(--color-surface-muted)]">
+                  <div className="h-2 rounded-full bg-[var(--color-surface-muted)]">
                     <div
-                      className="h-2 rounded-full bg-[color:var(--color-accent)] transition-all"
+                      className="h-2 rounded-full bg-[var(--color-accent)] transition-all"
                       style={{ width: `${scheduleProgress}%` }}
                     />
                   </div>
                   {pendingMilestone ? (
-                    <p className="text-xs text-[color:var(--color-text-muted)]">
-                      Próximo marco: <span className="font-medium text-[color:var(--color-text)]">{pendingMilestone.title}</span> • {pendingMilestone.expectedDate}
+                    <p className="text-xs text-[var(--color-text-muted)]">
+                      Próximo marco: <span className="font-medium text-[var(--color-text)]">{pendingMilestone.title}</span> • {pendingMilestone.expectedDate}
                     </p>
                   ) : (
-                    <p className="text-xs text-[color:var(--color-text-muted)]">Todos os marcos concluídos.</p>
+                    <p className="text-xs text-[var(--color-text-muted)]">Todos os marcos concluídos.</p>
                   )}
                 </div>
 
                 <div className="grid gap-3 md:grid-cols-3">
-                  <div className="rounded-xl border border-[color:var(--color-border)] p-4">
-                    <p className="text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">Serviços</p>
-                    <p className="mt-2 text-lg font-semibold text-[color:var(--color-text)]">
+                  <div className="rounded-xl border border-[var(--color-border)] p-4">
+                    <p className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">Serviços</p>
+                    <p className="mt-2 text-lg font-semibold text-[var(--color-text)]">
                       {formatCurrency(servicesTotal)}
                     </p>
-                    <p className="text-xs text-[color:var(--color-text-muted)]">
+                    <p className="text-xs text-[var(--color-text-muted)]">
                       {proposal.services.length} itens selecionados
                     </p>
                   </div>
-                  <div className="rounded-xl border border-[color:var(--color-border)] p-4">
-                    <p className="text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">Aprovação</p>
+                  <div className="rounded-xl border border-[var(--color-border)] p-4">
+                    <p className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">Aprovação</p>
                     <span
                       className={`mt-2 inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                        approvalBadge[approvalStatus] ?? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]"
+                        approvalBadge[approvalStatus] ?? "bg-[var(--color-surface-muted)] text-[var(--color-text-muted)]"
                       }`}
                     >
                       {approvalStatus}
                     </span>
-                    <p className="mt-2 text-xs text-[color:var(--color-text-muted)]">
+                    <p className="mt-2 text-xs text-[var(--color-text-muted)]">
                       Contato: {proposal.approval.mainContact.name}
                     </p>
                   </div>
-                  <div className="rounded-xl border border-[color:var(--color-border)] p-4">
-                    <p className="text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">Pagamentos</p>
+                  <div className="rounded-xl border border-[var(--color-border)] p-4">
+                    <p className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">Pagamentos</p>
                     <span
                       className={`mt-2 inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                        paymentBadge[paymentStatus] ?? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]"
+                        paymentBadge[paymentStatus] ?? "bg-[var(--color-surface-muted)] text-[var(--color-text-muted)]"
                       }`}
                     >
                       {paymentStatus}
                     </span>
-                    <p className="mt-2 text-xs text-[color:var(--color-text-muted)]">
+                    <p className="mt-2 text-xs text-[var(--color-text-muted)]">
                       {proposal.paymentPlan.installments.filter((installment) => installment.status === "paid").length} de {proposal.paymentPlan.installments.length} parcelas pagas
                     </p>
                   </div>
                 </div>
 
                 <footer className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs text-[color:var(--color-text-muted)]">
+                  <p className="text-xs text-[var(--color-text-muted)]">
                     Atualizada em {new Date(proposal.createdAt).toLocaleDateString("pt-BR")}
                   </p>
                   <div className="flex gap-3">
                     <button
                       type="button"
-                      className="rounded-full border border-[color:var(--color-border)] px-4 py-2 text-xs font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+                      className="rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
                     >
                       Ver detalhes
                     </button>
                     <button
                       type="button"
-                      className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[color:var(--color-accent-dark)]"
+                      className="rounded-full bg-[var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
                       onClick={() => handleConvert(proposal.id)}
                     >
                       Converter em contrato
@@ -266,9 +266,9 @@ export default function PropostasPage() {
           })}
         </section>
       ) : (
-        <section className="overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] shadow-sm">
-          <table className="min-w-full divide-y divide-[color:var(--color-border)]">
-            <thead className="bg-[color:var(--color-surface-muted)] text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
+        <section className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] shadow-sm">
+          <table className="min-w-full divide-y divide-[var(--color-border)]">
+            <thead className="bg-[var(--color-surface-muted)] text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
               <tr>
                 <th className="px-5 py-3 text-left">Proposta</th>
                 <th className="px-5 py-3 text-left">Cronograma</th>
@@ -278,7 +278,7 @@ export default function PropostasPage() {
                 <th className="px-5 py-3 text-right">Ações</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[color:var(--color-border)] text-sm text-[color:var(--color-text-muted)]">
+            <tbody className="divide-y divide-[var(--color-border)] text-sm text-[var(--color-text-muted)]">
               {sortedProposals.map((proposal) => {
                 const approvalStatus = getApprovalStatus(proposal);
                 const paymentStatus = getPaymentStatus(proposal);
@@ -288,21 +288,21 @@ export default function PropostasPage() {
                 return (
                   <tr key={proposal.id}>
                     <td className="px-5 py-4">
-                      <p className="text-sm font-semibold text-[color:var(--color-text)]">{proposal.code}</p>
+                      <p className="text-sm font-semibold text-[var(--color-text)]">{proposal.code}</p>
                       <p>{proposal.client}</p>
                     </td>
                     <td className="px-5 py-4">
-                      <p className="font-semibold text-[color:var(--color-text)]">{scheduleProgress}%</p>
+                      <p className="font-semibold text-[var(--color-text)]">{scheduleProgress}%</p>
                       <p>Encerramento {new Date(proposal.schedule.deadline).toLocaleDateString("pt-BR")}</p>
                     </td>
                     <td className="px-5 py-4">
-                      <p className="font-semibold text-[color:var(--color-text)]">{formatCurrency(servicesTotal)}</p>
+                      <p className="font-semibold text-[var(--color-text)]">{formatCurrency(servicesTotal)}</p>
                       <p>{proposal.services.length} serviços</p>
                     </td>
                     <td className="px-5 py-4">
                       <span
                         className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                          approvalBadge[approvalStatus] ?? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]"
+                          approvalBadge[approvalStatus] ?? "bg-[var(--color-surface-muted)] text-[var(--color-text-muted)]"
                         }`}
                       >
                         {approvalStatus}
@@ -311,7 +311,7 @@ export default function PropostasPage() {
                     <td className="px-5 py-4">
                       <span
                         className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                          paymentBadge[paymentStatus] ?? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-text-muted)]"
+                          paymentBadge[paymentStatus] ?? "bg-[var(--color-surface-muted)] text-[var(--color-text-muted)]"
                         }`}
                       >
                         {paymentStatus}
@@ -320,7 +320,7 @@ export default function PropostasPage() {
                     <td className="px-5 py-4 text-right">
                       <button
                         type="button"
-                        className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[color:var(--color-accent-dark)]"
+                        className="rounded-full bg-[var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
                         onClick={() => handleConvert(proposal.id)}
                       >
                         Gerar contrato
@@ -336,11 +336,11 @@ export default function PropostasPage() {
 
       <section className="mt-10 grid gap-6 lg:grid-cols-2">
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Estados de carregamento</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Estados de carregamento</h2>
           <SkeletonTable rows={3} columns={5} />
         </div>
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Estado vazio</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Estado vazio</h2>
           <EmptyState
             title="Nenhum registro filtrado"
             description="Ajuste filtros ou cadastre uma nova proposta para visualizar resultados."

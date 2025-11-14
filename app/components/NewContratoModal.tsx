@@ -505,12 +505,12 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
       description="Estruture o contrato por etapas para manter rastreabilidade e consistência."
       footer={
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+          {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
           <div className="flex flex-1 items-center justify-end gap-2">
             <button
               type="button"
               onClick={handleClose}
-              className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
             >
               Cancelar
             </button>
@@ -518,7 +518,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
               <button
                 type="button"
                 onClick={handlePreviousStep}
-                className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text)] transition hover:border-[color:var(--color-text)]"
+                className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-text)]"
               >
                 Voltar
               </button>
@@ -526,7 +526,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
             <button
               type="button"
               onClick={isLastStep ? handleSubmit : handleNextStep}
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
             >
               {isLastStep ? (editingContract ? "Salvar alterações" : "Criar contrato") : "Avançar"}
             </button>
@@ -543,8 +543,8 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
               onClick={() => setCurrentStep(step.id)}
               className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
                 currentStep === step.id
-                  ? "bg-[color:var(--color-primary)] text-white"
-                  : "border border-[color:var(--color-border)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+                  ? "bg-[var(--color-primary)] text-white"
+                  : "border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
               }`}
             >
               {step.label}
@@ -555,28 +555,28 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
         {currentStep === "basic" && (
           <div className="space-y-4">
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-code">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-code">
                 Código do contrato
               </label>
               <input
                 id="contract-code"
                 value={formState.code}
                 onChange={(event) => updateForm({ code: event.target.value })}
-                className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="CT-910"
               />
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-status">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-status">
                   Status operacional
                 </label>
                 <select
                   id="contract-status"
                   value={formState.status}
                   onChange={(event) => updateForm({ status: event.target.value as ContractStatus })}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   <option value="Rascunho">Rascunho</option>
                   <option value="Em revisão">Em revisão</option>
@@ -587,7 +587,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-signature-status">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-signature-status">
                   Status de assinatura
                 </label>
                 <select
@@ -596,7 +596,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   onChange={(event) =>
                     updateForm({ signature: { ...formState.signature, status: event.target.value as ContractSignature["status"] } })
                   }
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   <option value="Pendente">Pendente</option>
                   <option value="Parcial">Parcial</option>
@@ -607,14 +607,14 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-client">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-client">
                   Cliente
                 </label>
                 <select
                   id="contract-client"
                   value={formState.clientName}
                   onChange={(event) => updateForm({ clientName: event.target.value })}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   {contractSelectableOptions.clientes.map((cliente) => (
                     <option key={cliente.name} value={cliente.name}>
@@ -625,14 +625,14 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-enterprise">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-enterprise">
                   Empreendimento
                 </label>
                 <select
                   id="contract-enterprise"
                   value={formState.enterpriseName}
                   onChange={(event) => updateForm({ enterpriseName: event.target.value })}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 >
                   {contractSelectableOptions.empreendimentos.map((empreendimento) => (
                     <option key={empreendimento.nome} value={empreendimento.nome}>
@@ -644,14 +644,14 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-proposal">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-proposal">
                 Proposta vinculada
               </label>
               <select
                 id="contract-proposal"
                 value={formState.proposalCode}
                 onChange={(event) => updateForm({ proposalCode: event.target.value })}
-                className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
               >
                 {contractSelectableOptions.propostas.map((proposta) => (
                   <option key={proposta.codigo} value={proposta.codigo}>
@@ -663,7 +663,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-signature-deadline">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-signature-deadline">
                   Prazo para assinatura
                 </label>
                 <input
@@ -673,12 +673,12 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   onChange={(event) =>
                     updateForm({ signature: { ...formState.signature, deadline: event.target.value } })
                   }
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-signature-sent">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-signature-sent">
                   Último envio para assinatura
                 </label>
                 <input
@@ -688,13 +688,13 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   onChange={(event) =>
                     updateForm({ signature: { ...formState.signature, lastSentAt: fromDateTimeLocal(event.target.value) } })
                   }
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-pending-signers">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-pending-signers">
                 Signatários pendentes (um por linha)
               </label>
               <textarea
@@ -708,14 +708,14 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                     },
                   })
                 }
-                className="min-h-[80px] w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="min-h-[80px] w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="Diretoria jurídica"
               />
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-executed">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-executed">
                   Execução financeira (%)
                 </label>
                 <input
@@ -725,12 +725,12 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   max={100}
                   value={executedPercentage}
                   onChange={(event) => handleExecutedPercentageChange(Number(event.target.value))}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-outstanding">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-outstanding">
                   Saldo a faturar (R$)
                 </label>
                 <input
@@ -739,13 +739,13 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                   min={0}
                   value={formState.financialSummary.outstandingAmount}
                   onChange={(event) => handleOutstandingAmountChange(Number(event.target.value))}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-next-invoice">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-next-invoice">
                 Próxima fatura prevista
               </label>
               <input
@@ -757,12 +757,12 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                     financialSummary: { ...formState.financialSummary, nextInvoiceDate: event.target.value },
                   })
                 }
-                className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="contract-highlights">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="contract-highlights">
                 Destaques (um por linha)
               </label>
               <textarea
@@ -771,7 +771,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
                 onChange={(event) =>
                   updateForm({ highlights: event.target.value.split(/\n/).map((item) => item.trim()).filter(Boolean) })
                 }
-                className="min-h-[80px] w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="min-h-[80px] w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="Checklist de implantação completo"
               />
             </div>

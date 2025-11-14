@@ -19,14 +19,14 @@ export function AppHeader({ items }: AppHeaderProps) {
   );
 
   return (
-    <header className="border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)]">
+    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface-alt)]">
       <div className="flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-3 text-sm text-[color:var(--color-text-muted)] lg:hidden">
+        <div className="flex items-center gap-3 text-sm text-[var(--color-text-muted)] lg:hidden">
           <button
             type="button"
             aria-label="Abrir menu"
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] text-[color:var(--color-text)] shadow-sm"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-[var(--color-text)] shadow-sm"
           >
             ☰
           </button>
@@ -42,8 +42,8 @@ export function AppHeader({ items }: AppHeaderProps) {
                   href={item.href}
                   className={`rounded-full px-4 py-2 transition-colors ${
                     isActive
-                      ? "bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                      : "text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+                      ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                      : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                   }`}
                 >
                   {item.label}
@@ -53,17 +53,17 @@ export function AppHeader({ items }: AppHeaderProps) {
           </nav>
         </div>
         <div className="flex items-center gap-3">
-          <div className="hidden flex-col text-xs text-[color:var(--color-text-muted)] sm:flex">
+          <div className="hidden flex-col text-xs text-[var(--color-text-muted)] sm:flex">
             <span>Bem-vindo(a),</span>
-            <span className="font-medium text-[color:var(--color-text)]">Equipe Pleione</span>
+            <span className="font-medium text-[var(--color-text)]">Equipe Pleione</span>
           </div>
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--color-primary-soft)] text-sm font-semibold text-[color:var(--color-primary)]">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-soft)] text-sm font-semibold text-[var(--color-primary)]">
             EP
           </span>
         </div>
       </div>
       {isMenuOpen && (
-        <nav className="border-t border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-4 py-2 text-sm font-medium text-[color:var(--color-text-muted)] lg:hidden">
+        <nav className="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] lg:hidden">
           <div className="flex flex-col gap-1">
             {items.map((item) => {
               const isActive = pathname === item.href;
@@ -74,8 +74,8 @@ export function AppHeader({ items }: AppHeaderProps) {
                   onClick={() => setIsMenuOpen(false)}
                   className={`rounded-lg px-3 py-2 transition-colors ${
                     isActive
-                      ? "bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                      : "hover:bg-[color:var(--color-surface-muted)]"
+                      ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                      : "hover:bg-[var(--color-surface-muted)]"
                   }`}
                 >
                   {item.label}

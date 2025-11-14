@@ -20,8 +20,8 @@ export function Breadcrumbs({ routeLabels }: BreadcrumbsProps) {
   });
 
   return (
-    <nav className="flex items-center gap-2 text-xs text-[color:var(--color-text-muted)]" aria-label="Breadcrumb">
-      <Link href="/" className="font-medium text-[color:var(--color-text)] hover:text-[color:var(--color-primary)]">
+    <nav className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]" aria-label="Breadcrumb">
+      <Link href="/" className="font-medium text-[var(--color-text)] hover:text-[var(--color-primary)]">
         Início
       </Link>
       {crumbs.map((crumb) => (
@@ -29,7 +29,7 @@ export function Breadcrumbs({ routeLabels }: BreadcrumbsProps) {
           <span aria-hidden="true">/</span>
           <Link
             href={crumb.href}
-            className="text-[color:var(--color-text-muted)] transition-colors hover:text-[color:var(--color-text)]"
+            className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             {crumb.label}
           </Link>
