@@ -68,6 +68,37 @@ body {
   line-height: 1.5;
 }
 
+@layer components {
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--color-accent);
+    transition: background-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .btn-cta:hover {
+    background: var(--color-accent-dark);
+  }
+
+  .btn-cta:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .btn-cta:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background: var(--color-accent);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

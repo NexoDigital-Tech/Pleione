@@ -526,7 +526,7 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
             <button
               type="button"
               onClick={isLastStep ? handleSubmit : handleNextStep}
-              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+              className="btn-cta"
             >
               {isLastStep ? (editingContract ? "Salvar alterações" : "Criar contrato") : "Avançar"}
             </button>

@@ -67,7 +67,7 @@ export function NewPortalWidgetModal({ open, onClose, onSubmit }: NewPortalWidge
           <button
             type="submit"
             form="new-portal-widget-form"
-            className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+            className="btn-cta"
           >
             Adicionar widget
           </button>
