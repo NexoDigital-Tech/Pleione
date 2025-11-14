@@ -281,7 +281,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
       <button
         type="button"
         onClick={currentStep === 0 ? handleClose : handleBack}
-        className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+        className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
       >
         {currentStep === 0 ? "Cancelar" : "Voltar"}
       </button>
@@ -289,7 +289,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
         <button
           type="button"
           onClick={handleSubmit}
-          className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+          className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
         >
           Concluir proposta
         </button>
@@ -297,7 +297,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
         <button
           type="button"
           onClick={handleNext}
-          className="rounded-full bg-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-accent-dark)]"
+          className="rounded-full bg-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
         >
           Avançar
         </button>
@@ -314,7 +314,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
       footer={footer}
     >
       <div className="space-y-6">
-        <nav className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
+        <nav className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
           {steps.map((step, index) => {
             const isActive = index === currentStep;
             const isCompleted = index < currentStep;
@@ -323,10 +323,10 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
                 key={step.id}
                 className={`flex items-center gap-2 rounded-full border px-3 py-1 transition ${
                   isActive
-                    ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)]"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
                     : isCompleted
-                    ? "border-[color:var(--color-success)] bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]"
-                    : "border-[color:var(--color-border)]"
+                    ? "border-[var(--color-success)] bg-[var(--color-success)]/10 text-[var(--color-success)]"
+                    : "border-[var(--color-border)]"
                 }`}
               >
                 <span>{index + 1}</span>
@@ -338,51 +338,51 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
 
         <section className="space-y-4">
           <div>
-            <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{steps[currentStep].title}</h2>
-            <p className="text-sm text-[color:var(--color-text-muted)]">{stepDescription}</p>
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">{steps[currentStep].title}</h2>
+            <p className="text-sm text-[var(--color-text-muted)]">{stepDescription}</p>
           </div>
 
           {currentStepId === "general" && (
             <div className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Código</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Código</label>
                   <input
                     value={draft.code}
                     onChange={(event) => updateDraft({ code: event.target.value })}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Cliente</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Cliente</label>
                   <input
                     value={draft.client}
                     onChange={(event) => updateDraft({ client: event.target.value })}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Título</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Título</label>
                   <input
                     value={draft.title}
                     onChange={(event) => updateDraft({ title: event.target.value })}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Segmento</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Segmento</label>
                   <input
                     value={draft.segment}
                     onChange={(event) => updateDraft({ segment: event.target.value })}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Status</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Status</label>
                   <select
                     value={draft.status}
                     onChange={(event) => updateDraft({ status: event.target.value as ProposalDraft["status"] })}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   >
                     <option value="Rascunho">Rascunho</option>
                     <option value="Em negociação">Em negociação</option>
@@ -392,7 +392,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
                   </select>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]">Probabilidade (%)</label>
+                  <label className="text-sm font-medium text-[var(--color-text)]">Probabilidade (%)</label>
                   <input
                     type="number"
                     min={0}
@@ -402,21 +402,21 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
                       const parsed = Number(event.target.value);
                       updateDraft({ probability: Number.isNaN(parsed) ? draft.probability : parsed / 100 });
                     }}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]">Notas internas</label>
+                <label className="text-sm font-medium text-[var(--color-text)]">Notas internas</label>
                 <textarea
                   value={draft.notes ?? ""}
                   onChange={(event) => updateDraft({ notes: event.target.value })}
                   rows={3}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 />
               </div>
               {primaryError && (
-                <p className="text-sm text-[color:var(--color-danger)]">{primaryError}</p>
+                <p className="text-sm text-[var(--color-danger)]">{primaryError}</p>
               )}
             </div>
           )}
@@ -463,7 +463,7 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
           )}
 
           {additionalErrors.length > 0 && (
-            <ul className="space-y-1 rounded-lg border border-[color:var(--color-danger)] bg-[color:var(--color-danger-soft)] px-3 py-2 text-xs text-[color:var(--color-danger)]">
+            <ul className="space-y-1 rounded-lg border border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-3 py-2 text-xs text-[var(--color-danger)]">
               {additionalErrors.map((message) => (
                 <li key={message}>• {message}</li>
               ))}

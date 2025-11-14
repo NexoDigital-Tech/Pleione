@@ -13,11 +13,11 @@ interface ToastProps {
 
 const styles: Record<ToastType, string> = {
   success:
-    'border-[color:var(--color-success)] bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]',
+    'border-[var(--color-success)] bg-[var(--color-success)]/10 text-[var(--color-success)]',
   error:
-    'border-[color:var(--color-danger)] bg-[color:var(--color-danger-soft)] text-[color:var(--color-danger)]',
+    'border-[var(--color-danger)] bg-[var(--color-danger-soft)] text-[var(--color-danger)]',
   info:
-    'border-[color:var(--color-primary)] bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)]',
+    'border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]',
 };
 
 export function Toast({ message, type = 'info', onClose, duration = 4000 }: ToastProps) {
@@ -41,13 +41,13 @@ export function Toast({ message, type = 'info', onClose, duration = 4000 }: Toas
       <div className="flex items-start gap-3">
         <div>
           <p className="font-semibold capitalize">{type === 'error' ? 'Erro' : type === 'success' ? 'Sucesso' : 'Aviso'}</p>
-          <p className="mt-1 text-sm leading-snug text-[color:var(--color-text)]">{message}</p>
+          <p className="mt-1 text-sm leading-snug text-[var(--color-text)]">{message}</p>
         </div>
         {onClose && (
           <button
             type="button"
             onClick={onClose}
-            className="ml-auto text-xs font-semibold uppercase text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+            className="ml-auto text-xs font-semibold uppercase text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
           >
             Fechar
           </button>

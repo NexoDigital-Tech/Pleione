@@ -28,7 +28,7 @@ export function ContactList({
 }: ContactListProps) {
   if (contacts.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 text-center text-sm text-[color:var(--color-text-muted)]">
+      <div className="rounded-xl border border-dashed border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center text-sm text-[var(--color-text-muted)]">
         Nenhum contato adicionado.
       </div>
     );
@@ -41,18 +41,18 @@ export function ContactList({
         return (
           <li
             key={contactId}
-            className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4 shadow-sm"
+            className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm"
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-[color:var(--color-text)]">
+                <p className="text-sm font-semibold text-[var(--color-text)]">
                   {contact.name}
                 </p>
-                <p className="text-xs text-[color:var(--color-text-muted)]">
+                <p className="text-xs text-[var(--color-text-muted)]">
                   {contact.role}
                   {contact.department ? ` • ${contact.department}` : ""}
                 </p>
-                <div className="mt-2 space-y-1 text-xs text-[color:var(--color-text-muted)]">
+                <div className="mt-2 space-y-1 text-xs text-[var(--color-text-muted)]">
                   <p>{contact.email}</p>
                   {contact.phone && <p>Fixo: {contact.phone}</p>}
                   {contact.mobile && <p>Celular: {contact.mobile}</p>}
@@ -63,7 +63,7 @@ export function ContactList({
                   <button
                     type="button"
                     onClick={() => onEdit(contactId)}
-                    className="rounded-full border border-[color:var(--color-border)] px-4 py-1 text-xs font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+                    className="rounded-full border border-[var(--color-border)] px-4 py-1 text-xs font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
                   >
                     Editar
                   </button>
@@ -71,7 +71,7 @@ export function ContactList({
                     <button
                       type="button"
                       onClick={() => onRemove(contactId)}
-                      className="rounded-full border border-[color:var(--color-danger)] px-4 py-1 text-xs font-semibold text-[color:var(--color-danger)] transition hover:bg-[color:var(--color-danger)] hover:text-white"
+                      className="rounded-full border border-[var(--color-danger)] px-4 py-1 text-xs font-semibold text-[var(--color-danger)] transition hover:bg-[var(--color-danger)] hover:text-white"
                     >
                       Remover
                     </button>
@@ -84,19 +84,19 @@ export function ContactList({
               {contact.preferredChannels.map((channel) => (
                 <span
                   key={`${contactId}-${channel}`}
-                  className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 font-semibold text-[color:var(--color-primary)]"
+                  className="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 font-semibold text-[var(--color-primary)]"
                 >
                   {CHANNEL_LABELS[channel] ?? channel}
                 </span>
               ))}
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-3 text-xs text-[color:var(--color-text-muted)]">
+            <div className="mt-4 flex flex-wrap gap-3 text-xs text-[var(--color-text-muted)]">
               <span
                 className={`rounded-full px-3 py-1 font-semibold ${
                   contact.isPrimary
-                    ? "bg-[color:var(--color-success)]/10 text-[color:var(--color-success)]"
-                    : "bg-[color:var(--color-surface-muted)]"
+                    ? "bg-[var(--color-success)]/10 text-[var(--color-success)]"
+                    : "bg-[var(--color-surface-muted)]"
                 }`}
               >
                 {contact.isPrimary ? "Contato principal" : "Secundário"}
@@ -104,8 +104,8 @@ export function ContactList({
               <span
                 className={`rounded-full px-3 py-1 font-semibold ${
                   contact.receiveNotifications
-                    ? "bg-[color:var(--color-accent-soft)] text-[color:var(--color-accent)]"
-                    : "bg-[color:var(--color-surface-muted)]"
+                    ? "bg-[var(--color-accent-soft)] text-[var(--color-accent)]"
+                    : "bg-[var(--color-surface-muted)]"
                 }`}
               >
                 {contact.receiveNotifications
@@ -120,7 +120,7 @@ export function ContactList({
                   <button
                     type="button"
                     onClick={() => onTogglePrimary(contactId)}
-                    className="rounded-full border border-[color:var(--color-border)] px-4 py-1 font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+                    className="rounded-full border border-[var(--color-border)] px-4 py-1 font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
                   >
                     {contact.isPrimary ? "Remover como principal" : "Definir como principal"}
                   </button>
@@ -129,7 +129,7 @@ export function ContactList({
                   <button
                     type="button"
                     onClick={() => onToggleNotifications(contactId)}
-                    className="rounded-full border border-[color:var(--color-border)] px-4 py-1 font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+                    className="rounded-full border border-[var(--color-border)] px-4 py-1 font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
                   >
                     {contact.receiveNotifications
                       ? "Desativar notificações"
@@ -140,7 +140,7 @@ export function ContactList({
             )}
 
             {contact.notes && (
-              <p className="mt-4 text-xs text-[color:var(--color-text-muted)]">
+              <p className="mt-4 text-xs text-[var(--color-text-muted)]">
                 {contact.notes}
               </p>
             )}

@@ -90,12 +90,12 @@ export function ServicesSelector({ services, catalog, onChange, error }: Service
   return (
     <div className="space-y-5">
       <div className="space-y-2">
-        <label className="text-sm font-medium text-[color:var(--color-text)]">Adicionar serviço do catálogo</label>
+        <label className="text-sm font-medium text-[var(--color-text)]">Adicionar serviço do catálogo</label>
         <div className="flex flex-wrap gap-2">
           <select
             value={selectedTemplate}
             onChange={(event) => setSelectedTemplate(event.target.value)}
-            className="flex-1 rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="flex-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
           >
             <option value="">Selecione um serviço</option>
             {catalogOptions.map((option) => (
@@ -108,14 +108,14 @@ export function ServicesSelector({ services, catalog, onChange, error }: Service
             type="button"
             disabled={!selectedTemplate}
             onClick={handleAddTemplate}
-            className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition enabled:hover:bg-[color:var(--color-accent-dark)] disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-full bg-[var(--color-accent)] px-4 py-2 text-xs font-semibold text-white transition enabled:hover:bg-[var(--color-accent-dark)] disabled:cursor-not-allowed disabled:opacity-50"
           >
             Incluir
           </button>
           <button
             type="button"
             onClick={handleAddCustom}
-            className="rounded-full border border-[color:var(--color-border)] px-4 py-2 text-xs font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+            className="rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
           >
             Serviço personalizado
           </button>
@@ -123,7 +123,7 @@ export function ServicesSelector({ services, catalog, onChange, error }: Service
       </div>
 
       {services.length === 0 ? (
-        <p className="text-xs text-[color:var(--color-text-muted)]">
+        <p className="text-xs text-[var(--color-text-muted)]">
           Utilize o catálogo ou cadastre serviços personalizados para compor a proposta.
         </p>
       ) : (
@@ -131,77 +131,77 @@ export function ServicesSelector({ services, catalog, onChange, error }: Service
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4 shadow-sm"
+              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <h4 className="text-sm font-semibold text-[color:var(--color-text)]">{service.name}</h4>
+                <h4 className="text-sm font-semibold text-[var(--color-text)]">{service.name}</h4>
                 <button
                   type="button"
                   onClick={() => handleRemove(index)}
-                  className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-danger)] hover:text-[color:var(--color-danger)]/80"
+                  className="text-xs font-semibold uppercase tracking-wide text-[var(--color-danger)] hover:text-[var(--color-danger)]/80"
                 >
                   Remover
                 </button>
               </div>
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Nome</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Nome</label>
                   <input
                     value={service.name}
                     onChange={(event) => handleUpdate(index, "name", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Categoria</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Categoria</label>
                   <input
                     value={service.category}
                     onChange={(event) => handleUpdate(index, "category", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Descrição</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Descrição</label>
                   <textarea
                     value={service.description}
                     onChange={(event) => handleUpdate(index, "description", event.target.value)}
                     rows={2}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Tipo de cobrança</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Tipo de cobrança</label>
                   <select
                     value={service.billingType}
                     onChange={(event) => handleUpdate(index, "billingType", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   >
                     <option value="Único">Pagamento único</option>
                     <option value="Mensal">Mensal</option>
                   </select>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Quantidade</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Quantidade</label>
                   <input
                     type="number"
                     min={1}
                     value={service.quantity}
                     onChange={(event) => handleUpdate(index, "quantity", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-[color:var(--color-text-muted)]">Valor unitário</label>
+                  <label className="text-xs font-medium text-[var(--color-text-muted)]">Valor unitário</label>
                   <input
                     type="number"
                     min={0}
                     value={service.unitPrice}
                     onChange={(event) => handleUpdate(index, "unitPrice", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
               </div>
-              <p className="mt-3 text-sm font-semibold text-[color:var(--color-text)]">
+              <p className="mt-3 text-sm font-semibold text-[var(--color-text)]">
                 Total do serviço: {(service.unitPrice * service.quantity).toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
@@ -212,13 +212,13 @@ export function ServicesSelector({ services, catalog, onChange, error }: Service
         </div>
       )}
 
-      <div className="rounded-xl bg-[color:var(--color-surface)] p-4">
-        <p className="text-sm font-semibold text-[color:var(--color-text)]">
+      <div className="rounded-xl bg-[var(--color-surface)] p-4">
+        <p className="text-sm font-semibold text-[var(--color-text)]">
           Total estimado: {total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
         </p>
       </div>
 
-      {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+      {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
     </div>
   );
 }

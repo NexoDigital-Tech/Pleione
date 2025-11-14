@@ -113,11 +113,11 @@ function ClientesPageContent() {
         description="Acompanhe os clientes cadastrados, visualize dados completos e adicione novos registros pelo assistente."
         actions={
           <>
-            <button className="rounded-full border border-[color:var(--color-accent)] px-5 py-2 text-sm font-semibold text-[color:var(--color-accent)] transition hover:border-[color:var(--color-accent-dark)] hover:text-[color:var(--color-accent-dark)]">
+            <button className="rounded-full border border-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-[var(--color-accent)] transition hover:border-[var(--color-accent-dark)] hover:text-[var(--color-accent-dark)]">
               Importar
             </button>
             <button
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
               onClick={() => setModalOpen(true)}
             >
               Novo cliente
@@ -126,19 +126,19 @@ function ClientesPageContent() {
         }
       />
 
-      <section className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] shadow-sm">
-        <header className="flex flex-col gap-2 border-b border-[color:var(--color-border)] p-5 sm:flex-row sm:items-center sm:justify-between">
+      <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] shadow-sm">
+        <header className="flex flex-col gap-2 border-b border-[var(--color-border)] p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Clientes cadastrados</h2>
-            <p className="text-sm text-[color:var(--color-text-muted)]">
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">Clientes cadastrados</h2>
+            <p className="text-sm text-[var(--color-text-muted)]">
               Dados persistidos na store local com vínculos de contatos e endereços.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 text-xs">
-            <span className="rounded-full bg-[color:var(--color-accent-soft)] px-3 py-1 text-[color:var(--color-accent)]">
+            <span className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-[var(--color-accent)]">
               Total {totalClientes}
             </span>
-            <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[color:var(--color-text-muted)]">
+            <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-[var(--color-text-muted)]">
               Contatos vinculados {clientsWithRelations.reduce(
                 (total, relation) => total + relation.contacts.length,
                 0,
@@ -146,8 +146,8 @@ function ClientesPageContent() {
             </span>
           </div>
         </header>
-        <div className="divide-y divide-[color:var(--color-border)]">
-          <div className="grid gap-4 bg-[color:var(--color-surface-alt)] px-5 py-4 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)] md:grid-cols-[2fr_1.2fr_1fr_1.5fr_1fr]">
+        <div className="divide-y divide-[var(--color-border)]">
+          <div className="grid gap-4 bg-[var(--color-surface-alt)] px-5 py-4 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)] md:grid-cols-[2fr_1.2fr_1fr_1.5fr_1fr]">
             <span>Cliente</span>
             <span>CPF/CNPJ</span>
             <span>Cidade</span>
@@ -163,35 +163,35 @@ function ClientesPageContent() {
                 key={client.id}
                 type="button"
                 onClick={() => openDrawer(client.id)}
-                className="grid w-full gap-4 px-5 py-4 text-left text-sm text-[color:var(--color-text-muted)] transition hover:bg-[color:var(--color-surface-muted)] md:grid-cols-[2fr_1.2fr_1fr_1.5fr_1fr]"
+                className="grid w-full gap-4 px-5 py-4 text-left text-sm text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] md:grid-cols-[2fr_1.2fr_1fr_1.5fr_1fr]"
               >
                 <div>
-                  <p className="font-medium text-[color:var(--color-text)]">
+                  <p className="font-medium text-[var(--color-text)]">
                     {client.name}
                   </p>
-                  <p className="text-xs uppercase text-[color:var(--color-text-muted)]">
+                  <p className="text-xs uppercase text-[var(--color-text-muted)]">
                     {client.type === "PJ" ? "Pessoa jurídica" : "Pessoa física"} • {client.segment}
                   </p>
                 </div>
-                <span className="font-mono text-xs text-[color:var(--color-text)]">
+                <span className="font-mono text-xs text-[var(--color-text)]">
                   {formatDocument(client)}
                 </span>
                 <span>{city}</span>
                 <div>
                   {primaryContact ? (
                     <>
-                      <p className="font-medium text-[color:var(--color-text)]">
+                      <p className="font-medium text-[var(--color-text)]">
                         {primaryContact.contact.name}
                       </p>
-                      <p className="text-xs text-[color:var(--color-text-muted)]">
+                      <p className="text-xs text-[var(--color-text-muted)]">
                         {primaryContact.contact.email}
                       </p>
                     </>
                   ) : (
-                    <span className="text-xs text-[color:var(--color-text-muted)]">—</span>
+                    <span className="text-xs text-[var(--color-text-muted)]">—</span>
                   )}
                 </div>
-                <span className="text-right font-semibold text-[color:var(--color-text)]">
+                <span className="text-right font-semibold text-[var(--color-text)]">
                   {formatCurrency(client.potentialValue)}
                 </span>
               </button>
@@ -202,12 +202,12 @@ function ClientesPageContent() {
 
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Carregamento padrão</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Carregamento padrão</h2>
           <SkeletonTable rows={3} columns={5} />
           <SkeletonList items={4} />
         </div>
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text)]">Estado vazio</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Estado vazio</h2>
           <EmptyState
             title="Nenhum cliente neste filtro"
             description="Aplique outro critério ou cadastre um cliente manualmente."
@@ -233,26 +233,26 @@ function ClientesPageContent() {
         {selectedClient && (
           <div className="space-y-6">
             <section className="space-y-2">
-              <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Dados do cliente</h3>
-              <ul className="space-y-1 text-sm text-[color:var(--color-text-muted)]">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Dados do cliente</h3>
+              <ul className="space-y-1 text-sm text-[var(--color-text-muted)]">
                 <li>
-                  <span className="font-semibold text-[color:var(--color-text)]">Tipo:</span> {selectedClient.client.type === "PJ" ? "Pessoa jurídica" : "Pessoa física"}
+                  <span className="font-semibold text-[var(--color-text)]">Tipo:</span> {selectedClient.client.type === "PJ" ? "Pessoa jurídica" : "Pessoa física"}
                 </li>
                 <li>
-                  <span className="font-semibold text-[color:var(--color-text)]">Documento:</span> {formatDocument(selectedClient.client)}
+                  <span className="font-semibold text-[var(--color-text)]">Documento:</span> {formatDocument(selectedClient.client)}
                 </li>
                 <li>
-                  <span className="font-semibold text-[color:var(--color-text)]">Potencial:</span> {formatCurrency(selectedClient.client.potentialValue)}
+                  <span className="font-semibold text-[var(--color-text)]">Potencial:</span> {formatCurrency(selectedClient.client.potentialValue)}
                 </li>
               </ul>
             </section>
 
             <section className="space-y-2">
-              <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Endereços</h3>
-              <ul className="space-y-2 text-sm text-[color:var(--color-text-muted)]">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Endereços</h3>
+              <ul className="space-y-2 text-sm text-[var(--color-text-muted)]">
                 {selectedClient.client.addresses.map((address) => (
-                  <li key={address.id} className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-3">
-                    <p className="font-medium text-[color:var(--color-text)]">{address.label}</p>
+                  <li key={address.id} className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-3">
+                    <p className="font-medium text-[var(--color-text)]">{address.label}</p>
                     <p>
                       {address.street}, {address.number}
                       {address.complement ? ` - ${address.complement}` : ""}
@@ -267,12 +267,12 @@ function ClientesPageContent() {
             </section>
 
             <section className="space-y-2">
-              <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Preferências de contato</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Preferências de contato</h3>
               <div className="flex flex-wrap gap-2">
                 {preferencesToArray(selectedClient.client.contactPreferences).map((channel) => (
                   <span
                     key={channel}
-                    className="rounded-full bg-[color:var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)]"
+                    className="rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
                   >
                     {channel === "email"
                       ? "E-mail"
@@ -287,7 +287,7 @@ function ClientesPageContent() {
             </section>
 
             <section className="space-y-2">
-              <h3 className="text-sm font-semibold text-[color:var(--color-text)]">Contatos</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Contatos</h3>
               <ContactList contacts={drawerContacts} readOnly />
             </section>
           </div>

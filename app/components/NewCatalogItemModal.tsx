@@ -60,14 +60,14 @@ export function NewCatalogItemModal({ open, onClose, onSubmit }: NewCatalogItemM
           <button
             type="button"
             onClick={handleClose}
-            className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)]"
+            className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
           >
             Cancelar
           </button>
           <button
             type="submit"
             form="new-catalog-item-form"
-            className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+            className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
           >
             Adicionar item
           </button>
@@ -76,42 +76,42 @@ export function NewCatalogItemModal({ open, onClose, onSubmit }: NewCatalogItemM
     >
       <form id="new-catalog-item-form" className="space-y-4" onSubmit={handleSubmit}>
         <div className="space-y-1">
-          <label htmlFor="catalogo-nome" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="catalogo-nome" className="text-sm font-medium text-[var(--color-text)]">
             Nome
           </label>
           <input
             id="catalogo-nome"
             value={nome}
             onChange={(event) => setNome(event.target.value)}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="Consultoria de Viabilidade"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="catalogo-categoria" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="catalogo-categoria" className="text-sm font-medium text-[var(--color-text)]">
             Categoria
           </label>
           <input
             id="catalogo-categoria"
             value={categoria}
             onChange={(event) => setCategoria(event.target.value)}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="Serviços"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="catalogo-sla" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="catalogo-sla" className="text-sm font-medium text-[var(--color-text)]">
             SLA
           </label>
           <input
             id="catalogo-sla"
             value={sla}
             onChange={(event) => setSla(event.target.value)}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="15 dias"
           />
         </div>
-        {error && <p className="text-sm text-[color:var(--color-danger)]">{error}</p>}
+        {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
       </form>
     </Dialog>
   );

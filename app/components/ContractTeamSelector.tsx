@@ -60,7 +60,7 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-1">
-          <span className="text-sm font-medium text-[color:var(--color-text)]">Modo de trabalho</span>
+          <span className="text-sm font-medium text-[var(--color-text)]">Modo de trabalho</span>
           <div className="flex flex-wrap gap-2">
             {modeOptions.map((mode) => (
               <button
@@ -69,8 +69,8 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
                 onClick={() => update({ mode })}
                 className={`rounded-full border px-4 py-2 text-xs font-semibold transition ${
                   value.mode === mode
-                    ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                    : "border-[color:var(--color-border)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    : "border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                 }`}
               >
                 {mode}
@@ -80,14 +80,14 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
         </div>
 
         <div className="space-y-1">
-          <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="team-owner">
+          <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="team-owner">
             Responsável interno
           </label>
           <select
             id="team-owner"
             value={value.owner.id}
             onChange={(event) => handleOwnerChange(event.target.value)}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
           >
             {ownerOptions.map((member) => (
               <option key={member.id} value={member.id}>
@@ -99,10 +99,10 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
       </div>
 
       <div className="space-y-3">
-        <span className="text-sm font-medium text-[color:var(--color-text)]">Equipe envolvida</span>
+        <span className="text-sm font-medium text-[var(--color-text)]">Equipe envolvida</span>
         <div className="space-y-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
               Internos
             </p>
             <div className="mt-2 grid gap-2 md:grid-cols-2">
@@ -111,8 +111,8 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
                   key={member.id}
                   className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-sm transition ${
                     value.members.some((item) => item.id === member.id)
-                      ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                      : "border-[color:var(--color-border)] text-[color:var(--color-text)]"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                      : "border-[var(--color-border)] text-[var(--color-text)]"
                   }`}
                 >
                   <input
@@ -120,11 +120,11 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
                     disabled={member.id === value.owner.id}
                     checked={value.members.some((item) => item.id === member.id)}
                     onChange={() => handleMemberToggle(member.id)}
-                    className="h-4 w-4 rounded border-[color:var(--color-border)]"
+                    className="h-4 w-4 rounded border-[var(--color-border)]"
                   />
                   <span>
                     <span className="font-semibold">{member.name}</span>
-                    <span className="block text-xs text-[color:var(--color-text-muted)]">{member.role}</span>
+                    <span className="block text-xs text-[var(--color-text-muted)]">{member.role}</span>
                   </span>
                 </label>
               ))}
@@ -132,7 +132,7 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
               Cliente
             </p>
             <div className="mt-2 grid gap-2 md:grid-cols-2">
@@ -141,19 +141,19 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
                   key={member.id}
                   className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-sm transition ${
                     value.members.some((item) => item.id === member.id)
-                      ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent-soft)] text-[color:var(--color-accent)]"
-                      : "border-[color:var(--color-border)] text-[color:var(--color-text)]"
+                      ? "border-[var(--color-accent)] bg-[var(--color-accent-soft)] text-[var(--color-accent)]"
+                      : "border-[var(--color-border)] text-[var(--color-text)]"
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={value.members.some((item) => item.id === member.id)}
                     onChange={() => handleMemberToggle(member.id)}
-                    className="h-4 w-4 rounded border-[color:var(--color-border)]"
+                    className="h-4 w-4 rounded border-[var(--color-border)]"
                   />
                   <span>
                     <span className="font-semibold">{member.name}</span>
-                    <span className="block text-xs text-[color:var(--color-text-muted)]">{member.company}</span>
+                    <span className="block text-xs text-[var(--color-text-muted)]">{member.company}</span>
                   </span>
                 </label>
               ))}
@@ -163,14 +163,14 @@ export function ContractTeamSelector({ value, directory, onChange }: ContractTea
       </div>
 
       <div className="space-y-1">
-        <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="team-channel">
+        <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="team-channel">
           Canal de comunicação principal
         </label>
         <input
           id="team-channel"
           value={value.communicationChannel}
           onChange={(event) => update({ communicationChannel: event.target.value })}
-          className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+          className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
           placeholder="Canal no Teams"
         />
       </div>

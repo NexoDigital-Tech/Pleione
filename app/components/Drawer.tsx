@@ -35,23 +35,23 @@ export function Drawer({ open, onClose, title, description, children, footer }: 
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/40">
       <div className="flex-1" onClick={onClose} aria-hidden="true" />
-      <div className="flex h-full w-full max-w-md flex-col border-l border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] shadow-[var(--shadow-soft)]">
-        <header className="flex items-start justify-between border-b border-[color:var(--color-border)] px-6 py-5">
+      <div className="flex h-full w-full max-w-md flex-col border-l border-[var(--color-border)] bg-[var(--color-surface-alt)] shadow-[var(--shadow-soft)]">
+        <header className="flex items-start justify-between border-b border-[var(--color-border)] px-6 py-5">
           <div>
-            <h2 className="text-lg font-semibold text-[color:var(--color-text)]">{title}</h2>
-            {description && <p className="mt-1 text-sm text-[color:var(--color-text-muted)]">{description}</p>}
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">{title}</h2>
+            {description && <p className="mt-1 text-sm text-[var(--color-text-muted)]">{description}</p>}
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-transparent px-2 py-1 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:border-[color:var(--color-border)] hover:text-[color:var(--color-text)]"
+            className="rounded-full border border-transparent px-2 py-1 text-sm font-semibold text-[var(--color-text-muted)] transition hover:border-[var(--color-border)] hover:text-[var(--color-text)]"
             aria-label="Fechar"
           >
             ×
           </button>
         </header>
-        <div className="flex-1 overflow-y-auto px-6 py-5 text-sm text-[color:var(--color-text-muted)]">{children}</div>
-        {footer && <div className="border-t border-[color:var(--color-border)] px-6 py-4">{footer}</div>}
+        <div className="flex-1 overflow-y-auto px-6 py-5 text-sm text-[var(--color-text-muted)]">{children}</div>
+        {footer && <div className="border-t border-[var(--color-border)] px-6 py-4">{footer}</div>}
       </div>
     </div>
   );

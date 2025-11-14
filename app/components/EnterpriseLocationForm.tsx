@@ -29,7 +29,7 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
     <div className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1">
-          <label htmlFor="enterprise-address" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-address" className="text-sm font-medium text-[var(--color-text)]">
             Endereço
           </label>
           <input
@@ -37,12 +37,12 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="address"
             value={value.address}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="Rua das Acácias, 120"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="enterprise-area" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-area" className="text-sm font-medium text-[var(--color-text)]">
             Área total
           </label>
           <input
@@ -50,14 +50,14 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="area"
             value={value.area ?? ''}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="52.000 m²"
           />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="space-y-1">
-          <label htmlFor="enterprise-city" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-city" className="text-sm font-medium text-[var(--color-text)]">
             Cidade
           </label>
           <input
@@ -65,12 +65,12 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="city"
             value={value.city}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="São Paulo"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="enterprise-state" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-state" className="text-sm font-medium text-[var(--color-text)]">
             Estado
           </label>
           <input
@@ -78,13 +78,13 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="state"
             value={value.state}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="SP"
             maxLength={2}
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="enterprise-postalCode" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-postalCode" className="text-sm font-medium text-[var(--color-text)]">
             CEP
           </label>
           <input
@@ -92,14 +92,14 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="postalCode"
             value={value.postalCode}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="01000-000"
           />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1">
-          <label htmlFor="enterprise-country" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-country" className="text-sm font-medium text-[var(--color-text)]">
             País
           </label>
           <input
@@ -107,12 +107,12 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="country"
             value={value.country}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="Brasil"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="enterprise-referencePoints" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-referencePoints" className="text-sm font-medium text-[var(--color-text)]">
             Pontos de referência
           </label>
           <input
@@ -120,14 +120,14 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             name="referencePoints"
             value={value.referencePoints ?? ''}
             onChange={handleInputChange}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="Próximo ao metrô"
           />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1">
-          <label htmlFor="enterprise-latitude" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-latitude" className="text-sm font-medium text-[var(--color-text)]">
             Latitude
           </label>
           <input
@@ -137,12 +137,12 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             step="any"
             value={value.latitude ?? ''}
             onChange={handleCoordinateChange('latitude')}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="-23.5505"
           />
         </div>
         <div className="space-y-1">
-          <label htmlFor="enterprise-longitude" className="text-sm font-medium text-[color:var(--color-text)]">
+          <label htmlFor="enterprise-longitude" className="text-sm font-medium text-[var(--color-text)]">
             Longitude
           </label>
           <input
@@ -152,7 +152,7 @@ export function EnterpriseLocationForm({ value, onChange }: EnterpriseLocationFo
             step="any"
             value={value.longitude ?? ''}
             onChange={handleCoordinateChange('longitude')}
-            className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
             placeholder="-46.6333"
           />
         </div>

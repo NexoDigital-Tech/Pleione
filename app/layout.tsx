@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen bg-[color:var(--color-surface)] text-[color:var(--color-text)]">
+        <div className="min-h-screen bg-[var(--color-surface)] text-[var(--color-text)]">
           <div className="flex min-h-screen flex-col lg:flex-row">
             <Sidebar items={NAV_ITEMS} />
             <div className="flex flex-1 flex-col">

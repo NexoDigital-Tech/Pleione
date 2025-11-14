@@ -499,21 +499,21 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
       description="Utilize o assistente para cadastrar um cliente com endereço e contatos."
       footer={
         <div className="flex flex-wrap justify-between gap-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-text-muted)]">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
             {steps.map((item, index) => (
               <span
                 key={item.title}
                 className={`flex items-center gap-2 ${
                   index === step
-                    ? "text-[color:var(--color-primary)]"
-                    : "text-[color:var(--color-text-muted)]"
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--color-text-muted)]"
                 }`}
               >
                 <span
                   className={`flex h-6 w-6 items-center justify-center rounded-full border text-xs ${
                     index === step
-                      ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary)] text-white"
-                      : "border-[color:var(--color-border)]"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white"
+                      : "border-[var(--color-border)]"
                   }`}
                 >
                   {index + 1}
@@ -527,14 +527,14 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
               type="button"
               onClick={handlePrevious}
               disabled={step === 0}
-              className="rounded-full border border-[color:var(--color-border)] px-5 py-2 text-sm font-semibold text-[color:var(--color-text-muted)] transition hover:text-[color:var(--color-text)] disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Voltar
             </button>
             <button
               type="button"
               onClick={handleNext}
-              className="rounded-full bg-[color:var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
             >
               {step === steps.length - 1 ? "Salvar cliente" : "Avançar"}
             </button>
@@ -543,11 +543,11 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
       }
     >
       <div className="space-y-6">
-        <header className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-4">
-          <h3 className="text-base font-semibold text-[color:var(--color-text)]">
+        <header className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+          <h3 className="text-base font-semibold text-[var(--color-text)]">
             {steps[step].title}
           </h3>
-          <p className="text-sm text-[color:var(--color-text-muted)]">
+          <p className="text-sm text-[var(--color-text-muted)]">
             {steps[step].description}
           </p>
         </header>
@@ -562,8 +562,8 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                   onClick={() => handleGeneralChange("clientType", type as ClientType)}
                   className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
                     generalData.clientType === type
-                      ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                      : "border-[color:var(--color-border)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                      : "border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                   }`}
                 >
                   {type === "PJ" ? "Pessoa Jurídica" : "Pessoa Física"}
@@ -573,50 +573,50 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
 
             {generalData.clientType === "PF" ? (
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-full-name">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-full-name">
                   Nome completo
                 </label>
                 <input
                   id="client-full-name"
                   value={generalData.fullName}
                   onChange={(event) => handleGeneralChange("fullName", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Nome completo"
                 />
                 {generalErrors.fullName && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.fullName}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{generalErrors.fullName}</p>
                 )}
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-company-name">
+                  <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-company-name">
                     Razão social
                   </label>
                   <input
                     id="client-company-name"
                     value={generalData.companyName}
                     onChange={(event) => handleGeneralChange("companyName", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     placeholder="Nome da empresa"
                   />
                   {generalErrors.companyName && (
-                    <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.companyName}</p>
+                    <p className="text-xs text-[var(--color-danger)]">{generalErrors.companyName}</p>
                   )}
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-trade-name">
+                  <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-trade-name">
                     Nome fantasia
                   </label>
                   <input
                     id="client-trade-name"
                     value={generalData.tradeName}
                     onChange={(event) => handleGeneralChange("tradeName", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     placeholder="Nome fantasia"
                   />
                   {generalErrors.tradeName && (
-                    <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.tradeName}</p>
+                    <p className="text-xs text-[var(--color-danger)]">{generalErrors.tradeName}</p>
                   )}
                 </div>
               </div>
@@ -624,22 +624,22 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-document">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-document">
                   {generalData.clientType === "PF" ? "CPF" : "CNPJ"}
                 </label>
                 <input
                   id="client-document"
                   value={generalData.document}
                   onChange={(event) => handleDocumentChange(event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder={documentPlaceholder}
                 />
                 {generalErrors.document && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.document}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{generalErrors.document}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-potential">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-potential">
                   Valor potencial (R$)
                 </label>
                 <input
@@ -647,44 +647,44 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                   type="number"
                   value={generalData.potentialValue}
                   onChange={(event) => handleGeneralChange("potentialValue", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="1500000"
                 />
                 {generalErrors.potentialValue && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.potentialValue}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{generalErrors.potentialValue}</p>
                 )}
               </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-segment">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-segment">
                   Segmento
                 </label>
                 <input
                   id="client-segment"
                   value={generalData.segment}
                   onChange={(event) => handleGeneralChange("segment", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Incorporação"
                 />
                 {generalErrors.segment && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.segment}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{generalErrors.segment}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-stage">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-stage">
                   Fase do relacionamento
                 </label>
                 <input
                   id="client-stage"
                   value={generalData.stage}
                   onChange={(event) => handleGeneralChange("stage", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Negociação"
                 />
                 {generalErrors.stage && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{generalErrors.stage}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{generalErrors.stage}</p>
                 )}
               </div>
             </div>
@@ -692,7 +692,7 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
             <div className="grid gap-4 md:grid-cols-2">
               {generalData.clientType === "PF" ? (
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-birth-date">
+                  <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-birth-date">
                     Data de nascimento (opcional)
                   </label>
                   <input
@@ -700,13 +700,13 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                     type="date"
                     value={generalData.birthDate}
                     onChange={(event) => handleGeneralChange("birthDate", event.target.value)}
-                    className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                    className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   />
                 </div>
               ) : (
                 <>
                   <div className="space-y-1">
-                    <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-foundation-date">
+                    <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-foundation-date">
                       Data de fundação (opcional)
                     </label>
                     <input
@@ -714,7 +714,7 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                       type="date"
                       value={generalData.foundationDate}
                       onChange={(event) => handleGeneralChange("foundationDate", event.target.value)}
-                      className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                      className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                     />
                   </div>
                   <div />
@@ -723,7 +723,7 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
             </div>
 
             <div className="space-y-2">
-              <span className="text-sm font-medium text-[color:var(--color-text)]">
+              <span className="text-sm font-medium text-[var(--color-text)]">
                 Preferências de contato
               </span>
               <div className="flex flex-wrap gap-2">
@@ -743,8 +743,8 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                       }}
                       className={`rounded-full border px-4 py-1 text-xs font-semibold transition ${
                         active
-                          ? "border-[color:var(--color-primary)] bg-[color:var(--color-primary-soft)] text-[color:var(--color-primary)]"
-                          : "border-[color:var(--color-border)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]"
+                          ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                          : "border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                       }`}
                     >
                       {channel === "email"
@@ -759,21 +759,21 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                 })}
               </div>
               {generalErrors.contactPreferences && (
-                <p className="text-xs text-[color:var(--color-danger)]">
+                <p className="text-xs text-[var(--color-danger)]">
                   {generalErrors.contactPreferences}
                 </p>
               )}
             </div>
 
             <div className="space-y-1">
-              <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-notes">
+              <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-notes">
                 Observações internas (opcional)
               </label>
               <textarea
                 id="client-notes"
                 value={generalData.notes}
                 onChange={(event) => handleGeneralChange("notes", event.target.value)}
-                className="h-24 w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                className="h-24 w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                 placeholder="Detalhes adicionais sobre o cliente."
               />
             </div>
@@ -784,122 +784,122 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
           <div className="space-y-4">
             <div className="grid gap-4 md:grid-cols-3">
               <div className="md:col-span-1 space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-zip">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-zip">
                   CEP
                 </label>
                 <input
                   id="client-zip"
                   value={address.zipCode}
                   onChange={(event) => handleAddressChange("zipCode", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="00000-000"
                 />
                 {addressErrors.zipCode && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.zipCode}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.zipCode}</p>
                 )}
               </div>
               <div className="md:col-span-2 space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-street">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-street">
                   Logradouro
                 </label>
                 <input
                   id="client-street"
                   value={address.street}
                   onChange={(event) => handleAddressChange("street", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Rua, avenida..."
                 />
                 {addressErrors.street && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.street}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.street}</p>
                 )}
               </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-number">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-number">
                   Número
                 </label>
                 <input
                   id="client-number"
                   value={address.number}
                   onChange={(event) => handleAddressChange("number", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="123"
                 />
                 {addressErrors.number && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.number}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.number}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-complement">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-complement">
                   Complemento (opcional)
                 </label>
                 <input
                   id="client-complement"
                   value={address.complement}
                   onChange={(event) => handleAddressChange("complement", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Sala, bloco..."
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-district">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-district">
                   Bairro
                 </label>
                 <input
                   id="client-district"
                   value={address.district}
                   onChange={(event) => handleAddressChange("district", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Centro"
                 />
                 {addressErrors.district && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.district}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.district}</p>
                 )}
               </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-city">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-city">
                   Cidade
                 </label>
                 <input
                   id="client-city"
                   value={address.city}
                   onChange={(event) => handleAddressChange("city", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="São Paulo"
                 />
                 {addressErrors.city && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.city}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.city}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-state">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-state">
                   Estado
                 </label>
                 <input
                   id="client-state"
                   value={address.state}
                   onChange={(event) => handleAddressChange("state", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="SP"
                 />
                 {addressErrors.state && (
-                  <p className="text-xs text-[color:var(--color-danger)]">{addressErrors.state}</p>
+                  <p className="text-xs text-[var(--color-danger)]">{addressErrors.state}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <label className="text-sm font-medium text-[color:var(--color-text)]" htmlFor="client-country">
+                <label className="text-sm font-medium text-[var(--color-text)]" htmlFor="client-country">
                   País
                 </label>
                 <input
                   id="client-country"
                   value={address.country}
                   onChange={(event) => handleAddressChange("country", event.target.value)}
-                  className="w-full rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-3 py-2 text-sm text-[color:var(--color-text)] focus:border-[color:var(--color-primary)] focus:outline-none"
+                  className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:outline-none"
                   placeholder="Brasil"
                 />
               </div>
@@ -923,10 +923,10 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
             />
 
             <div>
-              <h4 className="text-sm font-semibold text-[color:var(--color-text)]">
+              <h4 className="text-sm font-semibold text-[var(--color-text)]">
                 Contatos adicionados
               </h4>
-              <p className="text-xs text-[color:var(--color-text-muted)]">
+              <p className="text-xs text-[var(--color-text-muted)]">
                 Defina o contato principal e quem receberá notificações automáticas.
               </p>
               <div className="mt-3">
@@ -939,7 +939,7 @@ export function NewClientModal({ open, onClose, onSubmit }: NewClientModalProps)
                 />
               </div>
               {contactsError.trim() && (
-                <p className="mt-2 text-sm text-[color:var(--color-danger)]">{contactsError}</p>
+                <p className="mt-2 text-sm text-[var(--color-danger)]">{contactsError}</p>
               )}
             </div>
           </div>
