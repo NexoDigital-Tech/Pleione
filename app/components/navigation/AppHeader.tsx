@@ -14,7 +14,7 @@ export function AppHeader({ items }: AppHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const activeItem = useMemo(
-    () => items.find((item) => item.href === pathname)?.label ?? "Início",
+    () => items.find((item) => item.href === pathname)?.label ?? items[0]?.label ?? "Dashboard",
     [items, pathname],
   );
 
