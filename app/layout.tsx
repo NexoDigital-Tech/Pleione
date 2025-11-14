@@ -3,16 +3,8 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { AppHeader } from "./components/navigation/AppHeader";
 import { Breadcrumbs } from "./components/navigation/Breadcrumbs";
-import { Sidebar, type NavItem } from "./components/navigation/Sidebar";
-import {
-  BuildingsIcon,
-  ClipboardCheckIcon,
-  DashboardIcon,
-  FileTextIcon,
-  GridIcon,
-  MonitorIcon,
-  UsersIcon,
-} from "./components/navigation/icons";
+import { Sidebar } from "./components/navigation/Sidebar";
+import { NAV_ITEMS } from "./components/navigation/nav-config";
 
 const geistSans = Inter({
   variable: "--font-geist-sans",
@@ -23,16 +15,6 @@ const geistMono = Roboto_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const NAV_ITEMS: NavItem[] = [
-  { label: "Dashboard", href: "/", icon: DashboardIcon },
-  { label: "Clientes", href: "/clientes", icon: UsersIcon },
-  { label: "Empreendimentos", href: "/empreendimentos", icon: BuildingsIcon },
-  { label: "Propostas", href: "/propostas", icon: FileTextIcon },
-  { label: "Contratos", href: "/contratos", icon: ClipboardCheckIcon },
-  { label: "Catálogo Serviços", href: "/catalogo", icon: GridIcon },
-  { label: "Portal Cliente", href: "/portal-do-cliente", icon: MonitorIcon },
-];
 
 const ROUTE_LABELS = NAV_ITEMS.reduce<Record<string, string>>((acc, item) => {
   acc[item.href] = item.label;

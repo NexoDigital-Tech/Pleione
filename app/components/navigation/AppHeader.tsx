@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavItem } from "./Sidebar";
+import type { NavConfigItem } from "./nav-config";
 
 interface AppHeaderProps {
-  items: NavItem[];
+  items: NavConfigItem[];
 }
 
 export function AppHeader({ items }: AppHeaderProps) {
