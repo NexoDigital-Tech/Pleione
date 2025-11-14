@@ -18,7 +18,7 @@ import { ContractBillingForm } from "./ContractBillingForm";
 import { ContractDocConfigForm } from "./ContractDocConfigForm";
 import { ContractTeamSelector } from "./ContractTeamSelector";
 import { ContractTermsForm } from "./ContractTermsForm";
-import { Drawer } from "./Drawer";
+import { Dialog } from "./Dialog";
 
 export type ContratoPayload = {
   id: string;
@@ -498,11 +498,12 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
   const executedPercentage = Math.round(formState.financialSummary.executedPercentage * 100);
 
   return (
-    <Drawer
+    <Dialog
       open={open}
       onClose={handleClose}
       title={editingContract ? "Editar contrato" : "Novo contrato"}
       description="Estruture o contrato por etapas para manter rastreabilidade e consistência."
+      size="full"
       footer={
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           {error && <p className="text-sm text-[var(--color-danger)]">{error}</p>}
@@ -797,6 +798,6 @@ export function NewContratoModal({ open, onClose, contractId, initialStep, onCom
           <ContractTeamSelector value={formState.team} onChange={(team) => updateForm({ team })} directory={contractTeamDirectory} />
         )}
       </div>
-    </Drawer>
+    </Dialog>
   );
 }
