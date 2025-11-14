@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { ProposalDraft, ProposalService } from "../(dashboard)/propostas/data";
 import { proposalServiceCatalog } from "../(dashboard)/propostas/data";
 import { ProposalApprovalChecklist } from "./ProposalApprovalChecklist";
-import { Drawer } from "./Drawer";
+import { Dialog } from "./Dialog";
 import { MilestonesEditor } from "./MilestonesEditor";
 import { PaymentPlanBuilder } from "./PaymentPlanBuilder";
 import { ProposalScheduleForm } from "./ProposalScheduleForm";
@@ -306,11 +306,12 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
   );
 
   return (
-    <Drawer
+    <Dialog
       open={open}
       onClose={handleClose}
       title="Nova proposta"
       description="Cadastre informações completas para gerar proposta e habilitar conversão em contrato."
+      size="xl"
       footer={footer}
     >
       <div className="space-y-6">
@@ -471,6 +472,6 @@ export function NewProposalSheet({ open, onClose, onSubmit }: NewProposalSheetPr
           )}
         </section>
       </div>
-    </Drawer>
+    </Dialog>
   );
 }
