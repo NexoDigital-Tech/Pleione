@@ -4,6 +4,15 @@ import "./globals.css";
 import { AppHeader } from "./components/navigation/AppHeader";
 import { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 import { Sidebar, type NavItem } from "./components/navigation/Sidebar";
+import {
+  BuildingsIcon,
+  ClipboardCheckIcon,
+  DashboardIcon,
+  FileTextIcon,
+  GridIcon,
+  MonitorIcon,
+  UsersIcon,
+} from "./components/navigation/icons";
 
 const geistSans = Inter({
   variable: "--font-geist-sans",
@@ -16,13 +25,13 @@ const geistMono = Roboto_Mono({
 });
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Início", href: "/" },
-  { label: "Clientes", href: "/clientes", description: "Gestão de contas e contatos" },
-  { label: "Empreendimentos", href: "/empreendimentos", description: "Acompanhamento de obras" },
-  { label: "Propostas", href: "/propostas", description: "Cotações e negociação" },
-  { label: "Contratos", href: "/contratos", description: "Formalização e vigência" },
-  { label: "Catálogo", href: "/catalogo", description: "Produtos e serviços" },
-  { label: "Portal do Cliente", href: "/portal-do-cliente", description: "Experiência do cliente final" },
+  { label: "Dashboard", href: "/", icon: DashboardIcon },
+  { label: "Clientes", href: "/clientes", icon: UsersIcon },
+  { label: "Empreendimentos", href: "/empreendimentos", icon: BuildingsIcon },
+  { label: "Propostas", href: "/propostas", icon: FileTextIcon },
+  { label: "Contratos", href: "/contratos", icon: ClipboardCheckIcon },
+  { label: "Catálogo Serviços", href: "/catalogo", icon: GridIcon },
+  { label: "Portal Cliente", href: "/portal-do-cliente", icon: MonitorIcon },
 ];
 
 const ROUTE_LABELS = NAV_ITEMS.reduce<Record<string, string>>((acc, item) => {
