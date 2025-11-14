@@ -1,50 +1,209 @@
-import { EmptyState } from "./components/EmptyState";
 import { PageHeader } from "./components/PageHeader";
-import { SkeletonCard } from "./components/skeletons/SkeletonCard";
-import { SkeletonList } from "./components/skeletons/SkeletonList";
-import { SkeletonTable } from "./components/skeletons/SkeletonTable";
-import {
-  catalogoMock,
-  clientesMock,
-  contratosMock,
-  empreendimentosMock,
-  portalClienteMock,
-  propostasMock,
-} from "./(dashboard)/_mocks/data";
 
-const highlights = [
-  { label: "Clientes ativos", value: "128", helper: "+12% vs. mês anterior" },
-  { label: "Propostas em negociação", value: "37", helper: "R$ 4,3M em pipeline" },
-  { label: "Empreendimentos acompanhados", value: "18", helper: "5 lançamentos este mês" },
-  { label: "Satisfação clientes", value: "92", helper: "NPS consolidado" },
+const quickActions = [
+  { label: "Novo Cliente", helper: "Cadastro em 2 min", tone: "primary" },
+  { label: "Nova Proposta", helper: "Modelo atualizado", tone: "accent" },
+  { label: "Novo Projeto", helper: "Checklist automático", tone: "warning" },
+  { label: "Upload Documento", helper: "Arraste e solte", tone: "info" },
+  { label: "Nova Reunião", helper: "Sincroniza agenda", tone: "success" },
+  { label: "Nova Tarefa", helper: "Distribua à equipe", tone: "muted" },
 ];
 
-const agenda = [
-  { titulo: "Reunião de kick-off", data: "Hoje • 10h", equipe: "Equipe Comercial" },
-  { titulo: "Envio de contrato", data: "Hoje • 15h", equipe: "Jurídico" },
-  { titulo: "Follow-up Catálogo", data: "Amanhã • 09h", equipe: "Produto" },
+const performanceIndicators = [
+  {
+    label: "Novos Clientes",
+    value: "24",
+    helper: "+15% vs mês anterior",
+  },
+  {
+    label: "Propostas Pendentes",
+    value: "18",
+    helper: "5 aguardando assinatura",
+  },
+  {
+    label: "Valor de Contratos",
+    value: "R$ 342K",
+    helper: "+8% este trimestre",
+  },
+  {
+    label: "Uploads Documentos",
+    value: "92",
+    helper: "30 revisões em andamento",
+  },
 ];
+
+const projectStatuses = [
+  {
+    nome: "Expansão Agrícola Sul",
+    fase: "Licença Prévia",
+    progresso: 72,
+    responsavel: "Equipe Ambiental",
+    prazo: "10 dias",
+  },
+  {
+    nome: "Mineradora Horizonte",
+    fase: "Estudo de Impacto",
+    progresso: 48,
+    responsavel: "Equipe Técnica",
+    prazo: "18 dias",
+  },
+  {
+    nome: "Parque Solar Nordeste",
+    fase: "Licença de Instalação",
+    progresso: 86,
+    responsavel: "Equipe Jurídica",
+    prazo: "5 dias",
+  },
+];
+
+const environmentalAlerts = [
+  {
+    orgao: "IBAMA - Licença Operação",
+    projeto: "Mineração Rio Verde",
+    prazo: "3 dias",
+    categoria: "urgente",
+  },
+  {
+    orgao: "NATURATINS - Faixa de APP",
+    projeto: "Hidrelétrica Tocantins",
+    prazo: "7 dias",
+    categoria: "alerta",
+  },
+  {
+    orgao: "FEMA - Compensação Ambiental",
+    projeto: "Complexo Eólico Ventos",
+    prazo: "12 dias",
+    categoria: "info",
+  },
+  {
+    orgao: "IMA - Renovação Licença",
+    projeto: "Porto Logístico Nordeste",
+    prazo: "15 dias",
+    categoria: "info",
+  },
+];
+
+const recentActivities = [
+  {
+    titulo: "Licença Prévia aprovada",
+    descricao: "Projeto Expansão Agrícola Sul",
+    timestamp: "há 2 horas",
+  },
+  {
+    titulo: "Proposta enviada",
+    descricao: "Cliente Horizonte Renovável",
+    timestamp: "há 4 horas",
+  },
+  {
+    titulo: "Documento anexado",
+    descricao: "Estudo hidrográfico - Rio Preto",
+    timestamp: "há 6 horas",
+  },
+  {
+    titulo: "Contato retornou",
+    descricao: "Prefeitura de Serra Azul",
+    timestamp: "há 1 dia",
+  },
+];
+
+const quickModules = [
+  {
+    nome: "Clientes",
+    descricao: "Gestão de contas e contatos",
+    status: "Atualizado ontem",
+  },
+  {
+    nome: "Propostas",
+    descricao: "Modelos e aprovações",
+    status: "5 aguardando",
+  },
+  {
+    nome: "Projetos",
+    descricao: "Linha do tempo e entregáveis",
+    status: "3 com pendências",
+  },
+  {
+    nome: "Contratos",
+    descricao: "Assinaturas digitais e anexos",
+    status: "2 para assinatura",
+  },
+  {
+    nome: "Compliance",
+    descricao: "Relatórios e auditorias",
+    status: "Sem riscos",
+  },
+  {
+    nome: "Relatórios",
+    descricao: "Indicadores consolidados",
+    status: "Atualizado hoje",
+  },
+];
+
+function toneToClassName(tone: string) {
+  switch (tone) {
+    case "primary":
+      return "bg-[var(--color-primary)]";
+    case "accent":
+      return "bg-[var(--color-accent)]";
+    case "warning":
+      return "bg-[var(--color-warning)]";
+    case "info":
+      return "bg-[var(--color-primary-soft)] text-[var(--color-primary)]";
+    case "success":
+      return "bg-[var(--color-success)]";
+    default:
+      return "bg-[var(--color-surface-muted)] text-[var(--color-text)]";
+  }
+}
+
+function alertToneToClassName(tone: string) {
+  switch (tone) {
+    case "urgente":
+      return "bg-[var(--color-danger)]";
+    case "alerta":
+      return "bg-[var(--color-warning)]";
+    default:
+      return "bg-[var(--color-primary)]";
+  }
+}
 
 export default function Home() {
   return (
     <>
       <PageHeader
-        title="Central Pleione"
-        description="Visão consolidada do pipeline comercial, empreendimentos e relacionamento com clientes. Navegue pelos módulos para acessar os protótipos e estados padronizados."
+        title="Dashboard"
+        description="Bem-vindo! Aqui você acompanha os principais indicadores, alertas ambientais e atividades recentes do ecossistema Pleione."
         actions={
           <>
-            <button className="rounded-full border border-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-[var(--color-accent)] transition hover:border-[var(--color-accent-dark)] hover:text-[var(--color-accent-dark)]">
-              Personalizar layout
+            <button className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]">
+              Personalizar
             </button>
             <button className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]">
-              Criar registro
+              Criar Registro
             </button>
           </>
         }
       />
 
+      <section className="grid gap-4 lg:grid-cols-3 xl:grid-cols-6">
+        {quickActions.map((item) => (
+          <button
+            key={item.label}
+            className="flex flex-col gap-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-4 text-left transition hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+          >
+            <span
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-white ${toneToClassName(item.tone)}`}
+            >
+              {item.label[0]}
+            </span>
+            <span className="text-sm font-semibold text-[var(--color-text)]">{item.label}</span>
+            <span className="text-xs text-[var(--color-text-muted)]">{item.helper}</span>
+          </button>
+        ))}
+      </section>
+
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {highlights.map((item) => (
+        {performanceIndicators.map((item) => (
           <article
             key={item.label}
             className="rounded-2xl bg-[var(--color-surface-alt)] p-5 shadow-[var(--shadow-soft)]"
@@ -58,112 +217,129 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+      <section className="grid gap-6 xl:grid-cols-[3fr_2fr]">
         <div className="space-y-4">
-          <header className="flex items-center justify-between">
+          <header className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h2 className="text-lg font-semibold text-[var(--color-text)]">Empreendimentos em destaque</h2>
-              <p className="text-sm text-[var(--color-text-muted)]">
-                Baseado nos mockups disponíveis para navegação.
-              </p>
+              <h2 className="text-lg font-semibold text-[var(--color-text)]">Status de Projetos</h2>
+              <p className="text-sm text-[var(--color-text-muted)]">Resumo consolidado das frentes ambientais em andamento.</p>
             </div>
-            <button className="hidden rounded-full border border-[var(--color-accent)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-accent)] transition hover:border-[var(--color-accent-dark)] hover:text-[var(--color-accent-dark)] lg:block">
-              Ver todos
-            </button>
+            <div className="flex items-center gap-2 rounded-full bg-[var(--color-surface-alt)] p-1 text-xs font-semibold text-[var(--color-text-muted)]">
+              <button className="rounded-full bg-[var(--color-primary)] px-4 py-1 text-white">Mensal</button>
+              <button className="rounded-full px-4 py-1 transition hover:text-[var(--color-text)]">Trimestral</button>
+            </div>
           </header>
-          <div className="grid gap-4 md:grid-cols-2">
-            {empreendimentosMock.map((empreendimento) => (
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {projectStatuses.map((projeto) => (
               <article
-                key={empreendimento.nome}
-                className="flex flex-col gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5"
+                key={projeto.nome}
+                className="flex h-full flex-col gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5"
               >
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--color-text)]">
-                    {empreendimento.nome}
-                  </h3>
-                  <p className="text-sm text-[var(--color-text-muted)]">
-                    {empreendimento.cidade} • {empreendimento.fase}
-                  </p>
+                <div className="space-y-1">
+                  <h3 className="text-base font-semibold text-[var(--color-text)]">{projeto.nome}</h3>
+                  <p className="text-sm text-[var(--color-text-muted)]">{projeto.fase}</p>
                 </div>
                 <div>
                   <div className="mb-1 flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                     <span>Progresso</span>
-                    <span>{empreendimento.progresso}%</span>
+                    <span>{projeto.progresso}%</span>
                   </div>
                   <div className="h-2 rounded-full bg-[var(--color-surface-muted)]">
                     <div
                       className="h-2 rounded-full bg-[var(--color-primary)]"
-                      style={{ width: `${empreendimento.progresso}%` }}
+                      style={{ width: `${projeto.progresso}%` }}
                     />
                   </div>
                 </div>
-                <button className="self-start rounded-full bg-[var(--color-accent-soft)] px-4 py-2 text-xs font-semibold text-[var(--color-accent)]">
-                  Abrir protótipo
-                </button>
+                <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
+                  <span>{projeto.responsavel}</span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-surface-muted)] px-2 py-1 font-medium text-[var(--color-text)]">
+                    {projeto.prazo}
+                  </span>
+                </div>
               </article>
             ))}
           </div>
         </div>
+
         <aside className="space-y-4">
           <div className="rounded-2xl bg-[var(--color-surface-alt)] p-5 shadow-[var(--shadow-soft)]">
-            <h2 className="text-lg font-semibold text-[var(--color-text)]">Agenda mockada</h2>
-            <ul className="mt-4 space-y-4 text-sm text-[var(--color-text-muted)]">
-              {agenda.map((item) => (
-                <li key={item.titulo} className="flex flex-col gap-1">
-                  <span className="font-medium text-[var(--color-text)]">{item.titulo}</span>
-                  <span>{item.data}</span>
-                  <span>{item.equipe}</span>
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">Alertas de Órgãos Ambientais</h2>
+            <ul className="mt-4 space-y-4">
+              {environmentalAlerts.map((alerta) => (
+                <li key={alerta.orgao} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--color-text)]">{alerta.orgao}</p>
+                      <p className="text-xs text-[var(--color-text-muted)]">{alerta.projeto}</p>
+                    </div>
+                    <span
+                      className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ${alertToneToClassName(alerta.categoria)}`}
+                    >
+                      {alerta.prazo}
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5">
-            <h2 className="text-lg font-semibold text-[var(--color-text)]">Estados padronizados</h2>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              Utilize os componentes abaixo para simular carregamento e vazio em todas as páginas.
-            </p>
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">Agenda do Dia</h2>
+            <ul className="mt-4 space-y-3 text-sm text-[var(--color-text-muted)]">
+              <li className="flex items-center justify-between">
+                <span>09:00 • Kick-off Projeto Vale Verde</span>
+                <span className="text-xs font-semibold text-[var(--color-accent)]">Equipe Comercial</span>
+              </li>
+              <li className="flex items-center justify-between">
+                <span>11:30 • Reunião Licenciamento</span>
+                <span className="text-xs font-semibold text-[var(--color-accent)]">Equipe Ambiental</span>
+              </li>
+              <li className="flex items-center justify-between">
+                <span>15:00 • Revisão contrato Horizonte</span>
+                <span className="text-xs font-semibold text-[var(--color-accent)]">Jurídico</span>
+              </li>
+            </ul>
           </div>
         </aside>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-4">
-          <h2 className="text-lg font-semibold text-[var(--color-text)]">Exemplo de carregamento (skeleton)</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <SkeletonCard withBadge />
-            <SkeletonList />
-          </div>
-          <SkeletonTable rows={4} columns={4} />
-        </div>
-        <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[var(--color-text)]">Estado vazio</h2>
-          <EmptyState
-            title="Nada por aqui ainda"
-            description="Use este padrão sempre que não houver dados disponíveis após o carregamento inicial."
-            actionLabel="Adicionar item"
-          />
-        </div>
-      </section>
-
-      <section className="grid gap-6 lg:grid-cols-2">
+      <section className="grid gap-6 lg:grid-cols-[3fr_2fr]">
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5">
-          <h2 className="text-lg font-semibold text-[var(--color-text)]">Panorama rápido</h2>
-          <ul className="mt-4 space-y-3 text-sm text-[var(--color-text-muted)]">
-            <li>Clientes mockados: {clientesMock.length}</li>
-            <li>Propostas mockadas: {propostasMock.length}</li>
-            <li>Contratos mockados: {contratosMock.length}</li>
-            <li>Itens de catálogo mockados: {catalogoMock.length}</li>
-            <li>Widgets portal cliente: {portalClienteMock.length}</li>
+          <header className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">Atividades Recentes</h2>
+            <button className="text-sm font-semibold text-[var(--color-accent)] transition hover:text-[var(--color-accent-dark)]">
+              Ver tudo
+            </button>
+          </header>
+          <ul className="mt-4 space-y-4">
+            {recentActivities.map((atividade) => (
+              <li key={atividade.titulo} className="flex items-start gap-3 rounded-xl bg-[var(--color-surface)] p-4">
+                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--color-primary)]" aria-hidden />
+                <div className="space-y-1">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">{atividade.titulo}</p>
+                  <p className="text-xs text-[var(--color-text-muted)]">{atividade.descricao}</p>
+                  <span className="text-xs font-medium text-[var(--color-text-muted)]">{atividade.timestamp}</span>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
+
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5">
-          <h2 className="text-lg font-semibold text-[var(--color-text)]">Guia rápido</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-[var(--color-text-muted)]">
-            <li>Navegue pelos módulos via barra lateral ou breadcrumbs.</li>
-            <li>Utilize os componentes de skeleton para loading.</li>
-            <li>Replique o estado vazio conforme padrão ao lado.</li>
-            <li>Mantenha dados mockados em `app/(dashboard)/_mocks`.</li>
-          </ol>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Acesso Rápido aos Módulos</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {quickModules.map((modulo) => (
+              <article
+                key={modulo.nome}
+                className="rounded-xl bg-[var(--color-surface)] p-4 transition hover:shadow-[var(--shadow-soft)]"
+              >
+                <h3 className="text-sm font-semibold text-[var(--color-text)]">{modulo.nome}</h3>
+                <p className="mt-1 text-xs text-[var(--color-text-muted)]">{modulo.descricao}</p>
+                <span className="mt-3 inline-block text-xs font-medium text-[var(--color-accent)]">{modulo.status}</span>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>
