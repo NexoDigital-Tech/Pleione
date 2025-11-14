@@ -4,16 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ComponentType, SVGProps } from "react";
 
-import { ChevronDownIcon } from "./icons";
+import {
+  ChevronDownIcon,
+  DashboardIcon,
+  UsersIcon,
+  BuildingsIcon,
+  FileTextIcon,
+  ClipboardCheckIcon,
+  GridIcon,
+  MonitorIcon,
+} from "./icons";
+import type { NavConfigItem, NavIconKey } from "./nav-config";
 
-export type NavItem = {
-  label: string;
-  href: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+const iconMap: Record<NavIconKey, ComponentType<SVGProps<SVGSVGElement>>> = {
+  dashboard: DashboardIcon,
+  users: UsersIcon,
+  buildings: BuildingsIcon,
+  "file-text": FileTextIcon,
+  "clipboard-check": ClipboardCheckIcon,
+  grid: GridIcon,
+  monitor: MonitorIcon,
 };
 
 interface SidebarProps {
-  items: NavItem[];
+  items: NavConfigItem[];
 }
 
 export function Sidebar({ items }: SidebarProps) {
@@ -57,12 +71,12 @@ export function Sidebar({ items }: SidebarProps) {
 }
 
 interface SidebarLinkProps {
-  item: NavItem;
+  item: NavConfigItem;
   isActive: boolean;
 }
 
 function SidebarLink({ item, isActive }: SidebarLinkProps) {
-  const Icon = item.icon;
+  const Icon = iconMap[item.icon] ?? DashboardIcon;
 
   return (
     <Link
