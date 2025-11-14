@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { AppHeader } from "./components/navigation/AppHeader";
-import { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 import { Sidebar } from "./components/navigation/Sidebar";
 import { NAV_ITEMS } from "./components/navigation/nav-config";
 
@@ -38,9 +37,8 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col lg:flex-row">
             <Sidebar items={NAV_ITEMS} />
             <div className="flex flex-1 flex-col">
-              <AppHeader items={NAV_ITEMS} />
+              <AppHeader routeLabels={ROUTE_LABELS} />
               <main className="flex-1 space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-                <Breadcrumbs routeLabels={ROUTE_LABELS} />
                 <div className="space-y-6">{children}</div>
               </main>
             </div>
