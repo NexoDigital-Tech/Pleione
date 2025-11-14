@@ -365,7 +365,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
             <button
               type="button"
               onClick={handlePreviousStep}
-              className="rounded-full border border-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:border-[var(--color-primary-dark)] hover:text-[var(--color-primary-dark)]"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
             >
               Voltar
             </button>
@@ -373,7 +373,7 @@ export function NewEmpreendimentoModal({ open, onClose, onSubmit, contacts }: Ne
           <button
             type="button"
             onClick={isLastStep ? handleSave : handleNextStep}
-            className="rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-dark)]"
+            className="btn-cta"
           >
             {isLastStep ? "Salvar empreendimento" : "Avançar"}
           </button>
